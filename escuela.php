@@ -5,20 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Escuelas</title>
     <link rel="stylesheet" href="estilo.css">
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -35,6 +21,7 @@
                     <th>Celular</th>
                     <th>Email</th>
                     <th>Fundación</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -54,7 +41,7 @@
                 }
 
                 // Consulta SQL
-                $sql = "SELECT nombre_escuela, tipo_escuela, nro_escuela, director, vicedirector, direccion_escuela, cel_escuela, email_escuela, fundacion_escuela FROM escuela";
+                $sql = "SELECT id, nombre_escuela, tipo_escuela, nro_escuela, director, vicedirector, direccion_escuela, cel_escuela, email_escuela, fundacion_escuela FROM escuela";
                 $result = $conn->query($sql);
 
                 // Verificar si hay resultados
@@ -71,10 +58,11 @@
                         echo "<td>" . $row["cel_escuela"] . "</td>";
                         echo "<td>" . $row["email_escuela"] . "</td>";
                         echo "<td>" . $row["fundacion_escuela"] . "</td>";
+                        echo "<td><a href='eliminar_escuela.php?id=" . $row["id"] . "' class='btn btn-danger'>Eliminar</a></td>";
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='9'>No hay datos disponibles</td></tr>";
+                    echo "<tr><td colspan='10'>No hay datos disponibles</td></tr>";
                 }
 
                 // Cerrar conexión
@@ -85,7 +73,7 @@
 
         <!-- Formulario para agregar nueva escuela -->
         <h2>Agregar Nueva Escuela</h2>
-        <form method="get" action="insertar_escuela.php">
+        <form method="post" action="insertar_escuela.php">
             <div class="mb-3">
                 <label for="nombre_escuela" class="form-label">Nombre Escuela</label>
                 <input type="text" class="form-control" id="nombre_escuela" name="nombre_escuela" required>
@@ -127,4 +115,3 @@
     </div>
 </body>
 </html>
-
