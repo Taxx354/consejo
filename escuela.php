@@ -82,6 +82,49 @@
                 ?>
             </tbody>
         </table>
+
+        <!-- Formulario para agregar nueva escuela -->
+        <h2>Agregar Nueva Escuela</h2>
+        <form method="get" action="insertar_escuela.php">
+            <div class="mb-3">
+                <label for="nombre_escuela" class="form-label">Nombre Escuela</label>
+                <input type="text" class="form-control" id="nombre_escuela" name="nombre_escuela" required>
+            </div>
+            <div class="mb-3">
+                <label for="tipo_escuela" class="form-label">Tipo Escuela</label>
+                <input type="text" class="form-control" id="tipo_escuela" name="tipo_escuela" required>
+            </div>
+            <div class="mb-3">
+                <label for="nro_escuela" class="form-label">Nro Escuela</label>
+                <input type="text" class="form-control" id="nro_escuela" name="nro_escuela" required>
+            </div>
+            <div class="mb-3">
+                <label for="director" class="form-label">Director</label>
+                <input type="text" class="form-control" id="director" name="director" required>
+            </div>
+            <div class="mb-3">
+                <label for="vicedirector" class="form-label">Vicedirector</label>
+                <input type="text" class="form-control" id="vicedirector" name="vicedirector" required>
+            </div>
+            <div class="mb-3">
+                <label for="direccion_escuela" class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="direccion_escuela" name="direccion_escuela" required>
+            </div>
+            <div class="mb-3">
+                <label for="cel_escuela" class="form-label">Celular</label>
+                <input type="text" class="form-control" id="cel_escuela" name="cel_escuela" required>
+            </div>
+            <div class="mb-3">
+                <label for="email_escuela" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email_escuela" name="email_escuela" required>
+            </div>
+            <div class="mb-3">
+                <label for="fundacion_escuela" class="form-label">Fundación</label>
+                <input type="text" class="form-control" id="fundacion_escuela" name="fundacion_escuela" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
     </div>
 </body>
 </html>
+

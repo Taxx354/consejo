@@ -1,0 +1,43 @@
+Tabla escuela
+numero (var) (relacion documentos)
+tipo institucion
+Nombre institución
+Director
+Vicedirector
+Dirección
+Telefono
+Dirección email
+Fecha fundación
+
+
+Tabla proveedores
+Infraestructura: gasistas, electricístas, contratistas, plomeros, fumigacion
+Transportista
+Alimentos
+Datos personales + fiscales, escuelas que trabajan
+
+
+Obras
+Escuela
+Tipo obra
+Estado
+Fecha inicio
+Personal a cargo (proveedor)
+
+
+nombre completo
+dni
+cuit
+rubro observaciones
+tipo fiscal
+celular
+direccion
+mail
+
+
+documentacion
+id_documento
+nro_escuela
+detalle_documento
+url_documento
+
