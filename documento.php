@@ -56,7 +56,7 @@
                 }
 
                 // Consulta SQL
-                $sql = "SELECT id_documento, id_escuela, numero_documento, fecha, titulo, link, cuit_cuil_personal, tipo_servicio, estado, expediente, historial_legajo FROM documentos";
+                $sql = "SELECT id_documento, id_esc, numero_documento, fecha, titulo, url, cuit_cuil, tipo_servicio, estado, expediente, historial_legajo FROM documentos";
                 $result = $conn->query($sql);
 
                 // Verificar si hay resultados
@@ -64,12 +64,12 @@
                     // Mostrar datos por cada fila
                     while($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . $row["id_escuela"] . "</td>";
+                        echo "<td>" . $row["id_esc"] . "</td>";
                         echo "<td>" . $row["numero_documento"] . "</td>";
                         echo "<td>" . $row["fecha"] . "</td>";
                         echo "<td>" . $row["titulo"] . "</td>";
                         echo "<td><a href='" . $row["link"] . "'>Ver Documento</a></td>";
-                        echo "<td>" . $row["cuit_cuil_personal"] . "</td>";
+                        echo "<td>" . $row["cuit_cuil"] . "</td>";
                         echo "<td>" . $row["tipo_servicio"] . "</td>";
                         echo "<td>" . $row["estado"] . "</td>";
                         echo "<td>" . $row["expediente"] . "</td>";
@@ -91,8 +91,8 @@
         <h2>Agregar Nuevo Documento</h2>
         <form method="post" action="insertar_documento.php">
             <div class="mb-3">
-                <label for="id_escuela" class="form-label">ID Escuela</label>
-                <input type="text" class="form-control" id="id_escuela" name="id_escuela" required>
+                <label for="id_esc" class="form-label">ID Escuela</label>
+                <input type="text" class="form-control" id="id_esc" name="id_esc" required>
             </div>
             <div class="mb-3">
                 <label for="numero_documento" class="form-label">Número Documento</label>
@@ -107,12 +107,12 @@
                 <input type="text" class="form-control" id="titulo" name="titulo" required>
             </div>
             <div class="mb-3">
-                <label for="link" class="form-label">Link</label>
-                <input type="url" class="form-control" id="link" name="link" required>
+                <label for="url" class="form-label">Link</label>
+                <input type="text" class="form-control" id="url" name="url" required>
             </div>
             <div class="mb-3">
-                <label for="cuit_cuil_personal" class="form-label">CUIT/CUIL Personal</label>
-                <input type="text" class="form-control" id="cuit_cuil_personal" name="cuit_cuil_personal" required>
+                <label for="cuit_cuil" class="form-label">CUIT/CUIL Personal</label>
+                <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
             </div>
             <div class="mb-3">
                 <label for="tipo_servicio" class="form-label">Tipo Servicio</label>

@@ -14,24 +14,25 @@ if ($conn->connect_error) {
 }
 
 // Obtener datos del formulario
-$id_escuela = $_POST['id_escuela'];
+$id_esc = $_POST['id_esc'];
 $numero_documento = $_POST['numero_documento'];
 $fecha = $_POST['fecha'];
 $titulo = $_POST['titulo'];
-$link = $_POST['link'];
-$cuit_cuil_personal = $_POST['cuit_cuil_personal'];
+$url = $_POST['url'];
+$cuit_cuil = $_POST['cuit_cuil'];
 $tipo_servicio = $_POST['tipo_servicio'];
 $estado = $_POST['estado'];
 $expediente = $_POST['expediente'];
 $historial_legajo = $_POST['historial_legajo'];
 
 // Consulta SQL para insertar datos
-$sql = "INSERT INTO documentos (id_escuela, numero_documento, fecha, titulo, link, cuit_cuil_personal, tipo_servicio, estado, expediente, historial_legajo)
-VALUES ('$id_escuela', '$numero_documento', '$fecha', '$titulo', '$link', '$cuit_cuil_personal', '$tipo_servicio', '$estado', '$expediente', '$historial_legajo')";
+$sql = "INSERT INTO documentos (id_esc, numero_documento, fecha, titulo, url, cuit_cuil, tipo_servicio, estado, expediente, historial_legajo)
+VALUES ('$id_esc', '$numero_documento', '$fecha', '$titulo', '$url', '$cuit_cuil', '$tipo_servicio', '$estado', '$expediente', '$historial_legajo')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Nuevo documento agregado exitosamente";
 } else {
+    // Mostrar el error para depuración
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
@@ -42,3 +43,4 @@ $conn->close();
 header("Location: documento.php");
 exit();
 ?>
+
