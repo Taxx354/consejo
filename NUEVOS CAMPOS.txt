@@ -1,0 +1,43 @@
+Id Doc
+Id Esc
+Num Doc
+Fecha
+Titulo
+Url
+Detalle documento
+Numero proveedor O Numero Auxiliar 
+Numero factura
+Observaciones
+Expediente
+Tipo serv
+Estado:
+	pendiente
+	inicio
+	proceso
+	porcentaje
+	licitacion
+	finalizado
+
+
+Escuela
+Id esc
+Nombre
+Direccion
+Director
+Rama escuela:
+	Inicial
+	Primaria
+	Secundario
+	Contexto encierro
+	Media
+	Tecnica
+	Agraria
+	Adulto
+Numero
+Telefono celular
+Mail:
+	Director
+	Mail escuela
+Cantidad alumnos
+Fecha fundacion
+
