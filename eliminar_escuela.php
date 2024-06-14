@@ -12,7 +12,8 @@ if ($conn->connect_error) {
 
 $id = $_GET['id'];
 
-$sql = "DELETE FROM escuela WHERE id = $id";
+// Corrección: usar id_esc en la consulta SQL
+$sql = "DELETE FROM escuela WHERE id_esc = $id";
 
 if ($conn->query($sql) === TRUE) {
     echo "Registro eliminado correctamente";
@@ -22,6 +23,7 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 
+// Redirección después de la eliminación
 header("Location: escuela.php");
 exit();
 ?>
