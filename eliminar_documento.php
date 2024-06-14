@@ -10,10 +10,10 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-$id = $_GET['id'];
+$idd = $_GET['idd'];
 
 // Corrección: usar id_documento en la consulta SQL
-$sql = "DELETE FROM documentos WHERE id_documento = $id";
+$sql = "DELETE FROM documentos WHERE id_documento = $idd";
 
 if ($conn->query($sql) === TRUE) {
     echo "Registro eliminado correctamente";
