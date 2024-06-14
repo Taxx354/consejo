@@ -14,19 +14,20 @@ if ($conn->connect_error) {
 }
 
 // Obtener datos del formulario
-$nombre_escuela = $_GET['nombre_escuela'];
-$tipo_escuela = $_GET['tipo_escuela'];
-$nro_escuela = $_GET['nro_escuela'];
-$director = $_GET['director'];
-$vicedirector = $_GET['vicedirector'];
-$direccion_escuela = $_GET['direccion_escuela'];
-$cel_escuela = $_GET['cel_escuela'];
-$email_escuela = $_GET['email_escuela'];
-$fundacion_escuela = $_GET['fundacion_escuela'];
+$nombre_escuela = $_POST['nombre_escuela'];
+$direccion_escuela = $_POST['direccion_escuela'];
+$director = $_POST['director'];
+$vicedirector = $_POST['vicedirector'];
+$telefono_director = $_POST['telefono_director'];
+$telefono_escuela = $_POST['telefono_escuela'];
+$rama_escuela = $_POST['rama_escuela'];
+$numero_escuela = $_POST['numero_escuela'];
+$cantidad_alumnos = $_POST['cantidad_alumnos'];
+$fecha_fundacion = $_POST['fecha_fundacion'];
 
 // Consulta SQL para insertar datos
-$sql = "INSERT INTO escuela (nombre_escuela, tipo_escuela, nro_escuela, director, vicedirector, direccion_escuela, cel_escuela, email_escuela, fundacion_escuela)
-VALUES ('$nombre_escuela', '$tipo_escuela', '$nro_escuela', '$director', '$vicedirector', '$direccion_escuela', '$cel_escuela', '$email_escuela', '$fundacion_escuela')";
+$sql = "INSERT INTO escuela (nombre_escuela, direccion_escuela, director, vicedirector, telefono_director, telefono_escuela, rama_escuela, numero_escuela, cantidad_alumnos, fecha_fundacion)
+VALUES ('$nombre_escuela', '$direccion_escuela', '$director', '$vicedirector', '$telefono_director', '$telefono_escuela', '$rama_escuela', '$numero_escuela', '$cantidad_alumnos', '$fecha_fundacion')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Nueva escuela agregada exitosamente";
