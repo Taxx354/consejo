@@ -26,13 +26,14 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th>ID Documento</th>
                     <th>ID Escuela</th>
                     <th>Número Documento</th>
                     <th>Fecha</th>
                     <th>Título</th>
-                    <th>Link</th>
-                    <th>CUIT/CUIL Personal</th>
-                    <th>Tipo Servicio</th>
+                    <th>URL</th>
+                    <th>CUIT/CUIL</th>
+                    <th>Tipo de Servicio</th>
                     <th>Estado</th>
                     <th>Expediente</th>
                     <th>Historial Legajo</th>
@@ -64,11 +65,12 @@
                     // Mostrar datos por cada fila
                     while($row = $result->fetch_assoc()) {
                         echo "<tr>";
+                        echo "<td>" . $row["id_documento"] . "</td>";
                         echo "<td>" . $row["id_esc"] . "</td>";
                         echo "<td>" . $row["numero_documento"] . "</td>";
                         echo "<td>" . $row["fecha"] . "</td>";
                         echo "<td>" . $row["titulo"] . "</td>";
-                        echo "<td><a href='" . $row["link"] . "'>Ver Documento</a></td>";
+                        echo "<td><a href='" . $row["url"] . "' target='_blank'>Enlace</a></td>";
                         echo "<td>" . $row["cuit_cuil"] . "</td>";
                         echo "<td>" . $row["tipo_servicio"] . "</td>";
                         echo "<td>" . $row["estado"] . "</td>";
@@ -78,7 +80,7 @@
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='11'>No hay datos disponibles</td></tr>";
+                    echo "<tr><td colspan='12'>No hay datos disponibles</td></tr>";
                 }
 
                 // Cerrar conexión
@@ -107,15 +109,15 @@
                 <input type="text" class="form-control" id="titulo" name="titulo" required>
             </div>
             <div class="mb-3">
-                <label for="url" class="form-label">Link</label>
+                <label for="url" class="form-label">URL</label>
                 <input type="text" class="form-control" id="url" name="url" required>
             </div>
             <div class="mb-3">
-                <label for="cuit_cuil" class="form-label">CUIT/CUIL Personal</label>
+                <label for="cuit_cuil" class="form-label">CUIT/CUIL</label>
                 <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
             </div>
             <div class="mb-3">
-                <label for="tipo_servicio" class="form-label">Tipo Servicio</label>
+                <label for="tipo_servicio" class="form-label">Tipo de Servicio</label>
                 <input type="text" class="form-control" id="tipo_servicio" name="tipo_servicio" required>
             </div>
             <div class="mb-3">
@@ -135,3 +137,4 @@
     </div>
 </body>
 </html>
+
