@@ -13,21 +13,21 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Obtener datos del formulario a través de GET
-$id_esc = $_GET['id_esc'];
-$numero_documento = $_GET['numero_documento'];
-$fecha = $_GET['fecha'];
-$titulo = $_GET['titulo'];
-$url = $_GET['url'];
-$cuit_cuil = $_GET['cuit_cuil'];
-$tipo_servicio = $_GET['tipo_servicio'];
-$estado = $_GET['estado'];
-$expediente = $_GET['expediente'];
-$historial_legajo = $_GET['historial_legajo'];
+// Obtener datos del formulario
+$id_escuela = $_POST['id_escuela'];
+$numero_documento = $_POST['numero_documento'];
+$fecha = $_POST['fecha'];
+$titulo = $_POST['titulo'];
+$link = $_POST['link'];
+$cuit_cuil_personal = $_POST['cuit_cuil_personal'];
+$tipo_servicio = $_POST['tipo_servicio'];
+$estado = $_POST['estado'];
+$expediente = $_POST['expediente'];
+$historial_legajo = $_POST['historial_legajo'];
 
 // Consulta SQL para insertar datos
-$sql = "INSERT INTO documentos (id_esc, numero_documento, fecha, titulo, url, cuit_cuil, tipo_servicio, estado, expediente, historial_legajo)
-VALUES ('$id_esc', '$numero_documento', '$fecha', '$titulo', '$url', '$cuit_cuil', '$tipo_servicio', '$estado', '$expediente', '$historial_legajo')";
+$sql = "INSERT INTO documentos (id_escuela, numero_documento, fecha, titulo, link, cuit_cuil_personal, tipo_servicio, estado, expediente, historial_legajo)
+VALUES ('$id_escuela', '$numero_documento', '$fecha', '$titulo', '$link', '$cuit_cuil_personal', '$tipo_servicio', '$estado', '$expediente', '$historial_legajo')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Nuevo documento agregado exitosamente";
