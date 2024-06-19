@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Escuelas</title>
+    <title>Lista de documentos</title>
     <link rel="stylesheet" href="estilo.css">
    
 </head>
