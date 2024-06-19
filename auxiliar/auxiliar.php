@@ -23,6 +23,14 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Lista de auxiliares</h1>
+        <h3>Selecciona una redireccion:</h3>
+    <form action="../redireccionar.php" method="post">
+        <select name="redireccion">
+        <option value="escuela/escuela.php">Escuelas</option>
+            <option value="documento/documento.php">Documentos</option>
+            <option value="proveedores/proveedores.php">Proveedores</option>
+			<option value="legajo/legajo.php">Legajos</option>
+        </select>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -36,6 +44,7 @@
                     <th>Categoria AFIP</th>
                     <th>Cuit / Cuil</th>
                     <th>Mail</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>

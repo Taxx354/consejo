@@ -23,6 +23,15 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Lista de Escuelas</h1>
+        <h3>Selecciona una redireccion:</h3>
+    <form action="../redireccionar.php" method="post">
+        <select name="redireccion">
+            <option value="documento/documento.php">Documentos</option>
+            <option value="auxiliar/auxiliar.php">Auxiliares</option>
+            <option value="proveedores/proveedores.php">Proveedores</option>
+            <option value="legajo/legajo.php">Legajos</option>
+
+        </select>
         <table class="table table-bordered">
             <thead>
                 <tr>
