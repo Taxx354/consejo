@@ -79,7 +79,7 @@
                         echo "<td>" . $row["id_esc"] . "</td>";
                         echo "<td>" . $row["fecha"] . "</td>";
                         echo "<td>" . $row["titulo"] . "</td>";
-                        echo "<td>" . $row["link"] . "</td>";
+                        echo "<td><a href='" . $row["link"] . "'>" . $row["link"] . "</a></td>";
                         echo "<td>" . $row["cuit_cuil"] . "</td>";
                         echo "<td>" . $row["tipo_servicio"] . "</td>";
                         echo "<td>" . $row["estado"] . "</td>";
