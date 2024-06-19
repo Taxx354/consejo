@@ -14,7 +14,6 @@ if ($conn->connect_error) {
 }
 
 // Obtener datos del formulario
-$id_proveedor = $_POST['id_proveedor'];
 $nombre_proveedor = $_POST['nombre_proveedor'];
 $dni = $_POST['dni'];
 $direccion = $_POST['direccion'];
@@ -26,8 +25,8 @@ $cuit_cuil = $_POST['cuit_cuil'];
 $mail = $_POST['mail'];
 
 // Consulta SQL para insertar datos
-$sql = "INSERT INTO proveedor (id_proveedor, nombre_proveedor, dni, direccion, telefono, tipo_servicio, observaciones_servicio, categoria_afip, cuit_cuil, mail)
-VALUES ('$id_proveedor', '$nombre_proveedor', '$dni', '$direccion', '$telefono', '$tipo_servicio', '$observaciones_servicio', '$categoria_afip', '$cuit_cuil', '$mail')";
+$sql = "INSERT INTO proveedor ( nombre_proveedor, dni, direccion, telefono, tipo_servicio, observaciones_servicio, categoria_afip, cuit_cuil, mail)
+VALUES ('$nombre_proveedor', '$dni', '$direccion', '$telefono', '$tipo_servicio', '$observaciones_servicio', '$categoria_afip', '$cuit_cuil', '$mail')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Nuevo proveedor agregada exitosamente";
