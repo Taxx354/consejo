@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 
 $id = $_GET['id'];
 
-// Corrección: usar id_documento en la consulta SQL
+// Corrección: usar id_esc en la consulta SQL
 $sql = "DELETE FROM documentos WHERE id_documento = $id";
 
 if ($conn->query($sql) === TRUE) {

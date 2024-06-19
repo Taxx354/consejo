@@ -17,19 +17,19 @@ if ($conn->connect_error) {
 $id_esc = $_POST['id_esc'];
 $fecha = $_POST['fecha'];
 $titulo = $_POST['titulo'];
-$url = $_POST['url'];
+$link = $_POST['link'];
 $cuit_cuil = $_POST['cuit_cuil'];
 $tipo_servicio = $_POST['tipo_servicio'];
 $estado = $_POST['estado'];
 $expediente = $_POST['expediente'];
 $historial_legajo = $_POST['historial_legajo'];
 
-
 // Consulta SQL para insertar datos
-$sql = "INSERT INTO legajo (id_esc, fecha, titulo, url, cuit_cuil, tipo_servicio, estado, expediente, historial_legajo) VALUES ('$id_esc', '$fecha', '$titulo', '$url', '$cuit_cuil', '$tipo_servicio', '$estado', '$expediente', '$historial_legajo')";
-
+$sql = "INSERT INTO documentos (id_documento, id_esc, fecha, titulo, link, cuit_cuil, tipo_servicio, estado, expediente, historial_legajo) VALUES (NULL, '$id_esc', '$fecha', '$titulo', '$link', '$cuit_cuil', '$tipo_servicio', '$estado', '$expediente', '$historial_legajo')";
+//var_dump($sql);
+//die;
 if ($conn->query($sql) === TRUE) {
-    echo "Nuevo legajo agregado exitosamente";
+    echo "Nueva escuela agregada exitosamente";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

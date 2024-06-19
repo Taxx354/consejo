@@ -5,11 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Escuelas</title>
     <link rel="stylesheet" href="estilo.css">
-   
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-5">Lista de Legajos</h1>
+        <h1 class="mt-5">Lista de Documentos</h1>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -23,6 +36,7 @@
                     <th>Estado</th>
                     <th>Expediente</th>
                     <th>Documento Legajo</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +56,7 @@
                 }
 
                 // Consulta SQL
-                $sql = "SELECT * FROM documentos";
+                $sql = "SELECT id_documento, id_esc, fecha, titulo, link, cuit_cuil, tipo_servicio, estado, expediente, historial_legajo FROM documentos";
                 $result = $conn->query($sql);
 
                 // Verificar si hay resultados
@@ -54,13 +68,13 @@
                         echo "<td>" . $row["id_esc"] . "</td>";
                         echo "<td>" . $row["fecha"] . "</td>";
                         echo "<td>" . $row["titulo"] . "</td>";
-                        echo "<td><a href='" . $row["link"] . "'>Ver Documento</a></td>";
+                        echo "<td>" . $row["link"] . "</td>";
                         echo "<td>" . $row["cuit_cuil"] . "</td>";
                         echo "<td>" . $row["tipo_servicio"] . "</td>";
                         echo "<td>" . $row["estado"] . "</td>";
                         echo "<td>" . $row["expediente"] . "</td>";
-                        echo "<td><a href='" . $row["historial_legajo"] . "'>Ver legajo</a></td>";
-                        echo "<td><a href='eliminar_documento.php?id=" . $row["id_documento"] . "' class='btn btn-danger'>Eliminar</a></td>";
+                        echo "<td>" . $row["historial_legajo"] . "</td>";
+                        echo "<td><a href='eliminar_documento.php?id=" . $row["id_esc"] . "' class='btn btn-danger'>Eliminar</a></td>";
                         echo "</tr>";
                     }
                 } else {
@@ -77,7 +91,7 @@
         <h2>Agregar Nuevo Documento</h2>
         <form method="post" action="insertar_documento.php">
             <div class="mb-3">
-                <label for="id_esc" class="form-label">ID Escuela</label>
+                <label for="id_esc" class="form-label">Escuela</label>
                 <input type="text" class="form-control" id="id_esc" name="id_esc" required>
             </div>
             <div class="mb-3">
@@ -93,11 +107,11 @@
                 <input type="text" class="form-control" id="link" name="link" required>
             </div>
             <div class="mb-3">
-                <label for="cuit_cuil" class="form-label">CUIT/CUIL Personal</label>
+                <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
                 <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
             </div>
             <div class="mb-3">
-                <label for="tipo_servicio" class="form-label">Tipo Servicio</label>
+                <label for="tipo_servicio" class="form-label">Tipo de servicio</label>
                 <input type="text" class="form-control" id="tipo_servicio" name="tipo_servicio" required>
             </div>
             <div class="mb-3">
@@ -109,10 +123,11 @@
                 <input type="text" class="form-control" id="expediente" name="expediente" required>
             </div>
             <div class="mb-3">
-                <label for="historial_legajo" class="form-label">Historial Legajo</label>
+                <label for="historial_legajo" class="form-label">Documento Legajo</label>
                 <input type="text" class="form-control" id="historial_legajo" name="historial_legajo" required>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
+    </div>
 </body>
 </html>
