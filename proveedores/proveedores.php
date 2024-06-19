@@ -94,6 +94,10 @@
         <!-- Formulario para agregar nuevo legajo -->
         <h2>Agregar Nuevo proveedor</h2>
         <form method="post" action="insertar_proveedor.php">
+        <div class="mb-3">
+                <label for="nombre_proveedor" class="form-label">DNI</label>
+                <input type="text" class="form-control" id="nombre_proveedor" name="nombre_proveedor" required>
+            </div>
             <div class="mb-3">
                 <label for="dni" class="form-label">DNI</label>
                 <input type="text" class="form-control" id="dni" name="dni" required>
