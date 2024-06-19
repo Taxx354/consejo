@@ -41,6 +41,7 @@
                     <th>ID Legajo</th>
                     <th>Cuit / Cuil</th>
                     <th>Documentos Legajo</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>

@@ -47,7 +47,7 @@
                     <th>Categoria AFIP</th>
                     <th>Cuit / Cuil</th>
                     <th>Mail</th>
-                    <th>Eliminar</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>

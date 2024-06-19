@@ -46,7 +46,8 @@
                     <th>Observaciones servicio</th>
                     <th>Categoria AFIP</th>
                     <th>Cuit / Cuil</th>
-                    <th>Mail</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>

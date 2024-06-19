@@ -44,6 +44,7 @@
                     <th>Vicedirector</th>
                     <th>Teléfono Director</th>
                     <th>Teléfono Escuela</th>
+                    <th>Email Escuela</th>
                     <th>Rama Escuela</th>
                     <th>Número Escuela</th>
                     <th>Cantidad Alumnos</th>
@@ -83,6 +84,7 @@
                         echo "<td>" . $row["vicedirector"] . "</td>";
                         echo "<td>" . $row["telefono_director"] . "</td>";
                         echo "<td>" . $row["telefono_escuela"] . "</td>";
+                        echo "<td>" . $row["mail_escuela"] . "</td>";
                         echo "<td>" . $row["rama_escuela"] . "</td>";
                         echo "<td>" . $row["numero_escuela"] . "</td>";
                         echo "<td>" . $row["cantidad_alumnos"] . "</td>";
@@ -126,6 +128,10 @@
             <div class="mb-3">
                 <label for="telefono_escuela" class="form-label">Teléfono Escuela</label>
                 <input type="text" class="form-control" id="telefono_escuela" name="telefono_escuela" required>
+            </div>
+            <div class="mb-3">
+                <label for="mail_escuela" class="form-label">Email Escuela</label>
+                <input type="text" class="form-control" id="mail_escuela" name="mail_escuela" required>
             </div>
             <div class="mb-3">
                 <label for="rama_escuela" class="form-label">Rama Escuela</label>
