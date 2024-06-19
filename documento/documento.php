@@ -5,20 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Documentos</title>
     <link rel="stylesheet" href="estilo.css">
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -56,7 +42,7 @@
                 }
 
                 // Consulta SQL
-                $sql = "SELECT id_documento, id_escuela, numero_documento, fecha, titulo, link, cuit_cuil_personal, tipo_servicio, estado, expediente, historial_legajo FROM documentos";
+                $sql = "SELECT id_documento, id_esc, numero_documento, fecha, titulo, url, cuit_cuil_personal, tipo_servicio, estado, expediente, historial_legajo FROM documentos";
                 $result = $conn->query($sql);
 
                 // Verificar si hay resultados
@@ -64,11 +50,11 @@
                     // Mostrar datos por cada fila
                     while($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . $row["id_escuela"] . "</td>";
+                        echo "<td>" . $row["id_esc"] . "</td>";
                         echo "<td>" . $row["numero_documento"] . "</td>";
                         echo "<td>" . $row["fecha"] . "</td>";
                         echo "<td>" . $row["titulo"] . "</td>";
-                        echo "<td><a href='" . $row["link"] . "'>Ver Documento</a></td>";
+                        echo "<td><a href='" . $row["url"] . "'>Ver Documento</a></td>";
                         echo "<td>" . $row["cuit_cuil_personal"] . "</td>";
                         echo "<td>" . $row["tipo_servicio"] . "</td>";
                         echo "<td>" . $row["estado"] . "</td>";
@@ -87,51 +73,50 @@
             </tbody>
         </table>
 
-        <!-- Formulario para agregar nuevo documento -->
         <h2>Agregar Nuevo Documento</h2>
         <form method="post" action="insertar_documento.php">
-            <div class="mb-3">
-                <label for="id_escuela" class="form-label">ID Escuela</label>
-                <input type="text" class="form-control" id="id_escuela" name="id_escuela" required>
-            </div>
-            <div class="mb-3">
-                <label for="numero_documento" class="form-label">Número Documento</label>
-                <input type="text" class="form-control" id="numero_documento" name="numero_documento" required>
-            </div>
-            <div class="mb-3">
-                <label for="fecha" class="form-label">Fecha</label>
-                <input type="date" class="form-control" id="fecha" name="fecha" required>
-            </div>
-            <div class="mb-3">
-                <label for="titulo" class="form-label">Título</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" required>
-            </div>
-            <div class="mb-3">
-                <label for="link" class="form-label">Link</label>
-                <input type="url" class="form-control" id="link" name="link" required>
-            </div>
-            <div class="mb-3">
-                <label for="cuit_cuil_personal" class="form-label">CUIT/CUIL Personal</label>
-                <input type="text" class="form-control" id="cuit_cuil_personal" name="cuit_cuil_personal" required>
-            </div>
-            <div class="mb-3">
-                <label for="tipo_servicio" class="form-label">Tipo Servicio</label>
-                <input type="text" class="form-control" id="tipo_servicio" name="tipo_servicio" required>
-            </div>
-            <div class="mb-3">
-                <label for="estado" class="form-label">Estado</label>
-                <input type="text" class="form-control" id="estado" name="estado" required>
-            </div>
-            <div class="mb-3">
-                <label for="expediente" class="form-label">Expediente</label>
-                <input type="text" class="form-control" id="expediente" name="expediente" required>
-            </div>
-            <div class="mb-3">
-                <label for="historial_legajo" class="form-label">Historial Legajo</label>
-                <input type="text" class="form-control" id="historial_legajo" name="historial_legajo" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Guardar</button>
-        </form>
+    <div class="mb-3">
+        <label for="id_escuela" class="form-label">ID Escuela</label>
+        <input type="text" class="form-control" id="id_esc" name="id_esc" required>
+    </div>
+    <div class="mb-3">
+        <label for="numero_documento" class="form-label">Número Documento</label>
+        <input type="text" class="form-control" id="numero_documento" name="numero_documento" required>
+    </div>
+    <div class="mb-3">
+        <label for="fecha" class="form-label">Fecha</label>
+        <input type="date" class="form-control" id="fecha" name="fecha" required>
+    </div>
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Título</label>
+        <input type="text" class="form-control" id="titulo" name="titulo" required>
+    </div>
+    <div class="mb-3">
+        <label for="link" class="form-label">Link</label>
+        <input type="url" class="form-control" id="url" name="url" required>
+    </div>
+    <div class="mb-3">
+        <label for="cuit_cuil_personal" class="form-label">CUIT/CUIL Personal</label>
+        <input type="text" class="form-control" id="cuit_cuil_personal" name="cuit_cuil_personal" required>
+    </div>
+    <div class="mb-3">
+        <label for="tipo_servicio" class="form-label">Tipo Servicio</label>
+        <input type="text" class="form-control" id="tipo_servicio" name="tipo_servicio" required>
+    </div>
+    <div class="mb-3">
+        <label for="estado" class="form-label">Estado</label>
+        <input type="text" class="form-control" id="estado" name="estado" required>
+    </div>
+    <div class="mb-3">
+        <label for="expediente" class="form-label">Expediente</label>
+        <input type="text" class="form-control" id="expediente" name="expediente" required>
+    </div>
+    <div class="mb-3">
+        <label for="historial_legajo" class="form-label">Historial Legajo</label>
+        <input type="text" class="form-control" id="historial_legajo" name="historial_legajo" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
     </div>
 </body>
 </html>
