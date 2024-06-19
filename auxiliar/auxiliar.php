@@ -92,7 +92,7 @@
         </table>
 
         <!-- Formulario para agregar nuevo legajo -->
-        <h2>Agregar Nuevo proveedor</h2>
+        <h2>Agregar Nuevo auxiliar</h2>
         <form method="post" action="insertar_auxiliar.php">
         <div class="mb-3">
                 <label for="nombre_auxiliar" class="form-label">Nombre completo</label>
