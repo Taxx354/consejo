@@ -31,6 +31,9 @@
             <option value="proveedores/proveedores.php">Proveedores</option>
 			<option value="legajo/legajo.php">Legajos</option>
         </select>
+        <br><br>
+        <input type="submit" value="Redireccionar">
+    </form>
         <table class="table table-bordered">
             <thead>
                 <tr>
