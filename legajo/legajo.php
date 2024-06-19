@@ -24,7 +24,6 @@
     <div class="container">
         <h1 class="mt-5">Lista de Legajos</h1>
         <h3>Selecciona una redireccion:</h3>
-        <h3>Selecciona una redireccion:</h3>
     <form action="../redireccionar.php" method="post">
         <select name="redireccion">
             <option value="escuela/escuela.php">Escuelas</option>
