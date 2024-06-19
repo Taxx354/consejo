@@ -54,7 +54,7 @@
                         echo "<td>" . $row["id_esc"] . "</td>";
                         echo "<td>" . $row["fecha"] . "</td>";
                         echo "<td>" . $row["titulo"] . "</td>";
-                        echo "<td><a href='" . $row["url"] . "'>Ver Documento</a></td>";
+                        echo "<td><a href='" . $row["link"] . "'>Ver Documento</a></td>";
                         echo "<td>" . $row["cuit_cuil"] . "</td>";
                         echo "<td>" . $row["tipo_servicio"] . "</td>";
                         echo "<td>" . $row["estado"] . "</td>";
@@ -74,7 +74,7 @@
         </table>
 
         <!-- Formulario para agregar nueva escuela -->
-        <h2>Agregar Nuevo Legajo</h2>
+        <h2>Agregar Nuevo Documento</h2>
         <form method="post" action="insertar_documento.php">
             <div class="mb-3">
                 <label for="id_esc" class="form-label">ID Escuela</label>
@@ -89,8 +89,8 @@
                 <input type="text" class="form-control" id="titulo" name="titulo" required>
             </div>
             <div class="mb-3">
-                <label for="url" class="form-label">Link</label>
-                <input type="text" class="form-control" id="url" name="url" required>
+                <label for="link" class="form-label">Link</label>
+                <input type="text" class="form-control" id="link" name="link" required>
             </div>
             <div class="mb-3">
                 <label for="cuit_cuil" class="form-label">CUIT/CUIL Personal</label>
