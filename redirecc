@@ -1,0 +1,11 @@
+<h3>Selecciona una redireccion:</h3>
+    <form action="redireccionar.php" method="post">
+        <select name="redireccion">
+            <option value="Metodoget.php">Ingresar datos a Clientes</option>
+            <option value="Automovil.php">Automoviles</option>
+            <option value="Marca.php">Marcas</option>
+			<option value="Contrato.php">Contratos</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Redireccionar">
+    </form>
