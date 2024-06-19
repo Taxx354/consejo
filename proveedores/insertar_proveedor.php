@@ -1,0 +1,44 @@
+<?php
+// Datos de conexión
+$servername = "localhost";
+$username = "admin";
+$password = "admin";
+$dbname = "consejo";
+
+// Crear conexión
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+
+// Obtener datos del formulario
+$id_proveedor = $_POST['id_proveedor'];
+$nombre_proveedor = $_POST['nombre_proveedor'];
+$dni = $_POST['dni'];
+$direccion = $_POST['direccion'];
+$telefono = $_POST['telefono'];
+$tipo_servicio = $_POST['tipo_servicio'];
+$observaciones_servicio = $_POST['observaciones_servicio'];
+$categoria_afip = $_POST['categoria_afip'];
+$cuit_cuil = $_POST['cuit_cuil'];
+$mail = $_POST['mail'];
+
+// Consulta SQL para insertar datos
+$sql = "INSERT INTO proveedor (id_proveedor, nombre_proveedor, dni, direccion, telefono, tipo_servicio, observaciones_servicio, categoria_afip, cuit_cuil, mail)
+VALUES ('$id_proveedor', '$nombre_proveedor', '$dni', '$direccion', '$telefono', '$tipo_servicio', '$observaciones_servicio', '$categoria_afip', '$cuit_cuil', '$mail')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Nuevo proveedor agregada exitosamente";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+// Cerrar conexión
+$conn->close();
+
+// Redirigir de vuelta a la página principal
+header("Location: proveedor.php");
+exit();
+?>
