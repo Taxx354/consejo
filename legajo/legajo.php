@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Escuelas</title>
+    <title>Lista de Legajos</title>
     <link rel="stylesheet" href="estilo.css">
     <style>
         table {
@@ -48,22 +48,27 @@
                 }
 
                 // Consulta SQL
-                $sql = "SELECT id_legajo, cuit_cuil, historial_legajo FROM escuela";
+                $sql = "SELECT id_legajo, cuit_cuil, historial_legajo FROM legajo"; // Asegúrate de que la tabla se llama 'legajo' y tiene estas columnas
                 $result = $conn->query($sql);
 
-                // Verificar si hay resultados
-                if ($result->num_rows > 0) {
-                    // Mostrar datos por cada fila
-                    while($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . $row["id_legajo"] . "</td>";
-                        echo "<td>" . $row["cuit_cuil"] . "</td>";
-                        echo "<td>" . $row["historial_legajo"] . "</td>";
-                        echo "<td><a href='eliminar_legajo.php?id=" . $row["id_esc"] . "' class='btn btn-danger'>Eliminar</a></td>";
-                        echo "</tr>";
-                    }
+                // Verificar si la consulta fue exitosa
+                if ($result === false) {
+                    echo "<tr><td colspan='3'>Error en la consulta: " . $conn->error . "</td></tr>";
                 } else {
-                    echo "<tr><td colspan='11'>No hay datos disponibles</td></tr>";
+                    // Verificar si hay resultados
+                    if ($result->num_rows > 0) {
+                        // Mostrar datos por cada fila
+                        while($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . $row["id_legajo"] . "</td>";
+                            echo "<td>" . $row["cuit_cuil"] . "</td>";
+                            echo "<td>" . $row["historial_legajo"] . "</td>";
+                            echo "<td><a href='eliminar_legajo.php?id=" . $row["id_legajo"] . "' class='btn btn-danger'>Eliminar</a></td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='3'>No hay datos disponibles</td></tr>";
+                    }
                 }
 
                 // Cerrar conexión
@@ -72,7 +77,7 @@
             </tbody>
         </table>
 
-        <!-- Formulario para agregar nueva escuela -->
+        <!-- Formulario para agregar nuevo legajo -->
         <h2>Agregar Nuevo Legajo</h2>
         <form method="post" action="insertar_legajo.php">
             <div class="mb-3">
@@ -81,7 +86,7 @@
             </div>
             <div class="mb-3">
                 <label for="historial_legajo" class="form-label">Documento Legajo</label>
-                <input type="text" class="form-control" id="director" name="historial_legajo" required>
+                <input type="text" class="form-control" id="historial_legajo" name="historial_legajo" required>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
