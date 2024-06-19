@@ -26,6 +26,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th>ID Escuela</th>
                     <th>Nombre Escuela</th>
                     <th>Dirección</th>
                     <th>Director</th>
@@ -64,6 +65,7 @@
                     // Mostrar datos por cada fila
                     while($row = $result->fetch_assoc()) {
                         echo "<tr>";
+                        echo "<td>" . $row["id_esc"] . "</td>";
                         echo "<td>" . $row["nombre_escuela"] . "</td>";
                         echo "<td>" . $row["direccion_escuela"] . "</td>";
                         echo "<td>" . $row["director"] . "</td>";
