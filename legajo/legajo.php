@@ -93,16 +93,16 @@
         <!-- Formulario para agregar nuevo legajo -->
         <h2>Agregar Nuevo Legajo</h2>
         <form method="post" action="insertar_legajo.php">
-            <div class="mb-3">
-                <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
-                <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
-            </div>
-            <div class="mb-3">
-                <label for="historial_legajo" class="form-label">Documento Legajo</label>
-                <input type="text" class="form-control" id="historial_legajo" name="historial_legajo" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Guardar</button>
-        </form>
+    <div class="form-group">
+        <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
+        <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
+    </div>
+    <div class="form-group">
+        <label for="historial_legajo" class="form-label">Documento Legajo</label>
+        <input type="text" class="form-control" id="historial_legajo" name="historial_legajo" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
     </div>
 </body>
 </html>
