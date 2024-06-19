@@ -30,10 +30,10 @@
             <option value="documento/documento.php">Documentos</option>
             <option value="auxiliar/auxiliar.php">Auxiliares</option>
 			<option value="legajo/legajo.php">Legajos</option>
-        </select>
-        <br><br>
+            <br><br>
         <input type="submit" value="Redireccionar">
     </form>
+        </select>
         <table class="table table-bordered">
             <thead>
                 <tr>
