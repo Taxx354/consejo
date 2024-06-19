@@ -38,6 +38,6 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
 // Redirigir de vuelta a la página principal
-header("Location: proveedor.php");
+header("Location: proveedores.php");
 exit();
 ?>
