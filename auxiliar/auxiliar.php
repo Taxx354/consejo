@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de auxiliares</title>
-    <link rel="stylesheet" href="estilo.css">
+    <title>Auxiliares</title>
+    <link rel="stylesheet" href="../estilo.css">
     <style>
         table {
             width: 100%;
