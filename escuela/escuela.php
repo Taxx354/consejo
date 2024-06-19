@@ -69,7 +69,7 @@
                 }
 
                 // Consulta SQL
-                $sql = "SELECT id_esc, nombre_escuela, direccion_escuela, director, vicedirector, telefono_director, telefono_escuela, rama_escuela, numero_escuela, cantidad_alumnos, fecha_fundacion FROM escuela";
+                $sql = "SELECT id_esc, nombre_escuela, direccion_escuela, director, vicedirector, telefono_director, telefono_escuela, mail_escuela, rama_escuela, numero_escuela, cantidad_alumnos, fecha_fundacion FROM escuela";
                 $result = $conn->query($sql);
 
                 // Verificar si hay resultados
