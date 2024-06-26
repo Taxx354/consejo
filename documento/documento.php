@@ -109,38 +109,47 @@
                 <label for="id_esc" class="form-label">Escuela</label>
                 <input type="text" class="form-control" id="id_esc" name="id_esc" required>
             </div>
+            <BR>
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha</label>
                 <input type="date" class="form-control" id="fecha" name="fecha" required>
             </div>
+            <BR>
             <div class="mb-3">
                 <label for="titulo" class="form-label">Título</label>
                 <input type="text" class="form-control" id="titulo" name="titulo" required>
             </div>
+            <BR>
             <div class="mb-3">
                 <label for="link" class="form-label">Link</label>
                 <input type="text" class="form-control" id="link" name="link" required>
             </div>
+            <br>
             <div class="mb-3">
                <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
             <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
            </div>
+           <BR>
             <div class="mb-3">
                 <label for="tipo_servicio" class="form-label">Tipo de servicio</label>
                 <input type="text" class="form-control" id="tipo_servicio" name="tipo_servicio" required>
             </div>
+            <BR>
             <div class="mb-3">
                 <label for="estado" class="form-label">Estado</label>
                 <input type="text" class="form-control" id="estado" name="estado" required>
             </div>
+            <BR>
             <div class="mb-3">
                 <label for="expediente" class="form-label">Expediente</label>
                 <input type="text" class="form-control" id="expediente" name="expediente" required>
             </div>
+            <br>
             <div class="mb-3">
                 <label for="historial_legajo" class="form-label">Documento Legajo</label>
                 <input type="text" class="form-control" id="historial_legajo" name="historial_legajo" required>
             </div>
+            <BR>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>
