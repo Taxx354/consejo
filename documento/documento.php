@@ -122,8 +122,10 @@
                 <input type="text" class="form-control" id="link" name="link" required>
             </div>
             <div class="mb-3">
-                <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
-                <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
+                <h2>Seleccionar Cuit/Cuil</h2>
+    <?php
+    echo $select_html;
+    ?>
             </div>
             <div class="mb-3">
                 <label for="tipo_servicio" class="form-label">Tipo de servicio</label>
@@ -181,10 +183,6 @@
     $conn->close();
     ?>
 
-    <h2>Seleccionar Cuit/Cuil</h2>
-    <?php
-    // Mostrar el select generado
-    echo $select_html;
-    ?>
+    
 </body>
 </html>
