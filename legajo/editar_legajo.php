@@ -72,7 +72,7 @@ $conn->close();
 <body>
     <div class="container">
         <h1 class="mt-5">Editar Legajo</h1>
-        <form method="post" action="insertar_legajo.php">
+        <form method="post" action="actualizar_legajo.php">
             <input type="hidden" name="id_legajo" value="<?php echo $id_legajo; ?>">
             <div class="form-group">
                 <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
