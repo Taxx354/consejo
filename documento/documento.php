@@ -122,11 +122,9 @@
                 <input type="text" class="form-control" id="link" name="link" required>
             </div>
             <div class="mb-3">
-                <h2>Seleccionar Cuit/Cuil</h2>
-    <?php
-    echo $select_html;
-    ?>
-            </div>
+               <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
+            <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
+           </div>
             <div class="mb-3">
                 <label for="tipo_servicio" class="form-label">Tipo de servicio</label>
                 <input type="text" class="form-control" id="tipo_servicio" name="tipo_servicio" required>
@@ -163,7 +161,7 @@
     }
 
     // Ejecutar la consulta
-    $sql = "SELECT cuit_cuil, nombre FROM proveedores UNION SELECT cuit_cuil, nombre FROM auxiliares";
+    $sql = "SELECT cuit_cuil, nombre_proveedor FROM proveedores UNION SELECT cuit_cuil, nombre_auxiliar FROM auxiliares";
     $result = $conn->query($sql);
 
     // Generar el select HTML
@@ -183,6 +181,9 @@
     $conn->close();
     ?>
 
-    
+    <h2>Seleccionar Cuit/Cuil</h2>
+    <?php
+    echo $select_html;
+    ?>
 </body>
 </html>
