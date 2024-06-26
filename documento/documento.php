@@ -19,12 +19,11 @@
             background-color: #f2f2f2;
         }
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="container">
         <h1 class="mt-5">Lista de Documentos</h1>
-        <h3>Selecciona una redirección:</h3>
+        <h3>Selecciona una redireccion:</h3>
         <form action="../redireccionar.php" method="post">
             <select name="redireccion">
                 <option value="escuela/escuela.php">Escuelas</option>
@@ -123,9 +122,7 @@
             </div>
             <div class="mb-3">
                 <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
-                <select id="cuit_cuil_select" class="form-control" name="cuit_cuil">
-                    <option value="">Seleccione un cuit/cuil</option>
-                </select>
+                <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
             </div>
             <div class="mb-3">
                 <label for="tipo_servicio" class="form-label">Tipo de servicio</label>
@@ -146,28 +143,6 @@
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>
-
-    <script>
-        $(document).ready(function() {
-            // Hacer una solicitud AJAX para obtener los datos
-            $.ajax({
-                url: 'obtener_cuit_cuil.php', // Asegúrate de que esta ruta sea correcta
-                method: 'GET',
-                dataType: 'json',
-                success: function(data) {
-                    // Construir el select con los datos recibidos
-                    data.forEach(function(item) {
-                        $('#cuit_cuil_select').append('<option value="' + item.cuit_cuil + '">' + item.nombre + ' (' + item.cuit_cuil + ')</option>');
-                    });
-                },
-                error: function(error) {
-                    console.log('Error:', error);
-                }
-            });
-        });
-    </script>
 </body>
 </html>
-
-
 
