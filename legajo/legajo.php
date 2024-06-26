@@ -18,28 +18,51 @@
         th {
             background-color: #f2f2f2;
         }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="mt-5">Lista de Legajos</h1>
-        <h3>Selecciona una redireccion:</h3>
-    <form action="../redireccionar.php" method="post">
-        <select name="redireccion">
-            <option value="escuela/escuela.php">Escuelas</option>
-            <option value="documento/documento.php">Documentos</option>
-            <option value="auxiliar/auxiliar.php">Auxiliares</option>
-			<option value="proveedores/proveedores.php">Proveedores</option>
+        <h3>Selecciona una redirección:</h3>
+        <form action="../redireccionar.php" method="post">
+            <select name="redireccion">
+                <option value="escuela/escuela.php">Escuelas</option>
+                <option value="documento/documento.php">Documentos</option>
+                <option value="auxiliar/auxiliar.php">Auxiliares</option>
+                <option value="proveedores/proveedores.php">Proveedores</option>
+            </select>
             <br><br>
-        <input type="submit" value="Redireccionar">
-    </form>
-        </select>
+            <input type="submit" value="Redireccionar">
+        </form>
+
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>ID Legajo</th>
                     <th>Cuit / Cuil</th>
-                    <th>Documentos Legajo</th>
+                    <th>Documento Legajo</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -65,7 +88,7 @@
 
                 // Verificar si la consulta fue exitosa
                 if ($result === false) {
-                    echo "<tr><td colspan='3'>Error en la consulta: " . $conn->error . "</td></tr>";
+                    echo "<tr><td colspan='4'>Error en la consulta: " . $conn->error . "</td></tr>";
                 } else {
                     // Verificar si hay resultados
                     if ($result->num_rows > 0) {
@@ -75,11 +98,14 @@
                             echo "<td>" . $row["id_legajo"] . "</td>";
                             echo "<td>" . $row["cuit_cuil"] . "</td>";
                             echo "<td>" . $row["historial_legajo"] . "</td>";
-                            echo "<td><a href='eliminar_legajo.php?id=" . $row["id_legajo"] . "' class='btn btn-danger'>Eliminar</a></td>";
+                            echo "<td>
+                                    <a href='eliminar_legajo.php?id=" . $row["id_legajo"] . "' class='btn btn-danger'>Eliminar</a>
+                                    <a href='editar_legajo.php?id=" . $row["id_legajo"] . "' class='btn btn-primary'>Modificar</a>
+                                  </td>";
                             echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='3'>No hay datos disponibles</td></tr>";
+                        echo "<tr><td colspan='4'>No hay datos disponibles</td></tr>";
                     }
                 }
 
@@ -92,16 +118,16 @@
         <!-- Formulario para agregar nuevo legajo -->
         <h2>Agregar Nuevo Legajo</h2>
         <form method="post" action="insertar_legajo.php">
-    <div class="form-group">
-        <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
-        <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
-    </div>
-    <div class="form-group">
-        <label for="historial_legajo" class="form-label">Documento Legajo</label>
-        <input type="text" class="form-control" id="historial_legajo" name="historial_legajo" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
-</form>
+            <div class="form-group">
+                <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
+                <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
+            </div>
+            <div class="form-group">
+                <label for="historial_legajo" class="form-label">Documento Legajo</label>
+                <input type="text" class="form-control" id="historial_legajo" name="historial_legajo" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
     </div>
 </body>
 </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Documento</title>
+    <link rel="stylesheet" href="../estilo.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Documento</h1>
+        <?php
+        // Datos de conexión
+        $servername = "localhost";
+        $username = "admin";
+        $password = "admin";
+        $dbname = "consejo";
+
+        // Crear conexión
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Verificar conexión
+        if ($conn->connect_error) {
+            die("Conexión fallida: " . $conn->connect_error);
+        }
+
+        // Obtener ID del documento
+        $id_documento = $_GET['id'];
+
+        // Consulta para obtener los datos del documento
+        $sql = "SELECT * FROM documentos WHERE id_documento = $id_documento";
+        $result = $conn->query($sql);
+
+        // Verificar si el documento existe
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+        ?>
+
+        <!-- Formulario para editar documento -->
+        <form method="post" action="insertar_documento.php">
+            <input type="hidden" name="id_documento" value="<?php echo $row['id_documento']; ?>">
+            <div class="mb-3">
+                <label for="id_esc" class="form-label">Escuela</label>
+                <input type="text" class="form-control" id="id_esc" name="id_esc" value="<?php echo $row['id_esc']; ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha</label>
+                <input type="date" class="form-control" id="fecha" name="fecha" value="<?php echo $row['fecha']; ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Título</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" value="<?php echo $row['titulo']; ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="link" class="form-label">Link</label>
+                <input type="text" class="form-control" id="link" name="link" value="<?php echo $row['link']; ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
+                <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" value="<?php echo $row['cuit_cuil']; ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="tipo_servicio" class="form-label">Tipo de servicio</label>
+                <input type="text" class="form-control" id="tipo_servicio" name="tipo_servicio" value="<?php echo $row['tipo_servicio']; ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="estado" class="form-label">Estado</label>
+                <input type="text" class="form-control" id="estado" name="estado" value="<?php echo $row['estado']; ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="expediente" class="form-label">Expediente</label>
+                <input type="text" class="form-control" id="expediente" name="expediente" value="<?php echo $row['expediente']; ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="historial_legajo" class="form-label">Documento Legajo</label>
+                <input type="text" class="form-control" id="historial_legajo" name="historial_legajo" value="<?php echo $row['historial_legajo']; ?>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </form>
+
+        <?php
+        } else {
+            echo "<p>Documento no encontrado.</p>";
+        }
+
+        // Cerrar conexión
+        $conn->close();
+        ?>
+    </div>
+</body>
+</html>

@@ -24,23 +24,24 @@
     <div class="container">
         <h1 class="mt-5">Lista de auxiliares</h1>
         <h3>Selecciona una redireccion:</h3>
-    <form action="../redireccionar.php" method="post">
-        <select name="redireccion">
-        <option value="escuela/escuela.php">Escuelas</option>
-            <option value="documento/documento.php">Documentos</option>
-            <option value="proveedores/proveedores.php">Proveedores</option>
-			<option value="legajo/legajo.php">Legajos</option>
+        <form action="../redireccionar.php" method="post">
+            <select name="redireccion">
+                <option value="escuela/escuela.php">Escuelas</option>
+                <option value="documento/documento.php">Documentos</option>
+                <option value="proveedores/proveedores.php">Proveedores</option>
+                <option value="legajo/legajo.php">Legajos</option>
+            </select>
             <br><br>
-        <input type="submit" value="Redireccionar">
-    </form>
-        </select>
+            <input type="submit" value="Redireccionar">
+        </form>
+
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>ID auxiliar</th>
                     <th>Nombre auxiliar</th>
                     <th>DNI</th>
-                    <th>Direccion </th>
+                    <th>Direccion</th>
                     <th>Telefono</th>
                     <th>Cargo</th>
                     <th>Observaciones del cargo</th>
@@ -67,12 +68,12 @@
                 }
 
                 // Consulta SQL
-                $sql = "SELECT id_auxiliar, nombre_auxiliar, dni_auxiliar, direccion_auxiliar, telefono_auxiliar, cargo_auxiliar, observaciones_cargo, categoria_afip, cuit_cuil, mail_auxiliar FROM auxiliar"; // Asegúrate de que la tabla se llama 'proveedor' y tiene estas columnas
+                $sql = "SELECT id_auxiliar, nombre_auxiliar, dni_auxiliar, direccion_auxiliar, telefono_auxiliar, cargo_auxiliar, observaciones_cargo, categoria_afip, cuit_cuil, mail_auxiliar FROM auxiliar";
                 $result = $conn->query($sql);
 
                 // Verificar si la consulta fue exitosa
                 if ($result === false) {
-                    echo "<tr><td colspan='3'>Error en la consulta: " . $conn->error . "</td></tr>";
+                    echo "<tr><td colspan='11'>Error en la consulta: " . $conn->error . "</td></tr>";
                 } else {
                     // Verificar si hay resultados
                     if ($result->num_rows > 0) {
@@ -90,10 +91,11 @@
                             echo "<td>" . $row["cuit_cuil"] . "</td>";
                             echo "<td>" . $row["mail_auxiliar"] . "</td>";
                             echo "<td><a href='eliminar_auxiliar.php?id=" . $row["id_auxiliar"] . "' class='btn btn-danger'>Eliminar</a></td>";
+                            echo "<td><a href='editar_auxiliar.php?id=" . $row["id_auxiliar"] . "' class='btn btn-warning'>Modificar</a></td>";
                             echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='3'>No hay datos disponibles</td></tr>";
+                        echo "<tr><td colspan='11'>No hay datos disponibles</td></tr>";
                     }
                 }
 
@@ -103,10 +105,10 @@
             </tbody>
         </table>
 
-        <!-- Formulario para agregar nuevo legajo -->
+        <!-- Formulario para agregar nuevo auxiliar -->
         <h2>Agregar Nuevo auxiliar</h2>
         <form method="post" action="insertar_auxiliar.php">
-        <div class="mb-3">
+            <div class="mb-3">
                 <label for="nombre_auxiliar" class="form-label">Nombre completo</label>
                 <input type="text" class="form-control" id="nombre_auxiliar" name="nombre_auxiliar" required>
             </div>
@@ -140,10 +142,8 @@
             </div>
             <div class="mb-3">
                 <label for="mail_auxiliar" class="form-label">Mail</label>
-                <input type="text" class="mail" id="mail_auxiliar" name="mail_auxiliar" required>
+                <input type="email" class="form-control" id="mail_auxiliar" name="mail_auxiliar" required>
             </div>
-
-
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>

@@ -24,16 +24,16 @@
     <div class="container">
         <h1 class="mt-5">Lista de Documentos</h1>
         <h3>Selecciona una redireccion:</h3>
-    <form action="../redireccionar.php" method="post">
-        <select name="redireccion">
-        <option value="escuela/escuela.php">Escuelas</option>
-            <option value="auxiliar/auxiliar.php">Auxiliares</option>
-            <option value="proveedores/proveedores.php">Proveedores</option>
-			<option value="legajo/legajo.php">Legajos</option>
+        <form action="../redireccionar.php" method="post">
+            <select name="redireccion">
+                <option value="escuela/escuela.php">Escuelas</option>
+                <option value="auxiliar/auxiliar.php">Auxiliares</option>
+                <option value="proveedores/proveedores.php">Proveedores</option>
+                <option value="legajo/legajo.php">Legajos</option>
+            </select>
             <br><br>
-        <input type="submit" value="Redireccionar">
-    </form>
-        </select>
+            <input type="submit" value="Redireccionar">
+        </form>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -85,7 +85,10 @@
                         echo "<td>" . $row["estado"] . "</td>";
                         echo "<td>" . $row["expediente"] . "</td>";
                         echo "<td>" . $row["historial_legajo"] . "</td>";
-                        echo "<td><a href='eliminar_documento.php?id=" . $row["id_esc"] . "' class='btn btn-danger'>Eliminar</a></td>";
+                        echo "<td>";
+                        echo "<a href='eliminar_documento.php?id=" . $row["id_documento"] . "' class='btn btn-danger'>Eliminar</a> ";
+                        echo "<a href='editar_documento.php?id=" . $row["id_documento"] . "' class='btn btn-warning'>Modificar</a>";
+                        echo "</td>";
                         echo "</tr>";
                     }
                 } else {
@@ -98,7 +101,7 @@
             </tbody>
         </table>
 
-        <!-- Formulario para agregar nueva escuela -->
+        <!-- Formulario para agregar nuevo documento -->
         <h2>Agregar Nuevo Documento</h2>
         <form method="post" action="insertar_documento.php">
             <div class="mb-3">
@@ -142,3 +145,4 @@
     </div>
 </body>
 </html>
+

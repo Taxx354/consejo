@@ -23,28 +23,29 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Lista de proveedores</h1>
-        <h3>Selecciona una redireccion:</h3>
-    <form action="../redireccionar.php" method="post">
-        <select name="redireccion">
-            <option value="escuela/escuela.php">Escuelas</option>
-            <option value="documento/documento.php">Documentos</option>
-            <option value="auxiliar/auxiliar.php">Auxiliares</option>
-			<option value="legajo/legajo.php">Legajos</option>
+        <h3>Selecciona una redirección:</h3>
+        <form action="../redireccionar.php" method="post">
+            <select name="redireccion">
+                <option value="escuela/escuela.php">Escuelas</option>
+                <option value="documento/documento.php">Documentos</option>
+                <option value="auxiliar/auxiliar.php">Auxiliares</option>
+                <option value="legajo/legajo.php">Legajos</option>
+            </select>
             <br><br>
-        <input type="submit" value="Redireccionar">
-    </form>
-        </select>
+            <input type="submit" value="Redireccionar">
+        </form>
+
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>ID Proveedor</th>
                     <th>Nombre proveedor</th>
                     <th>DNI</th>
-                    <th>Direccion </th>
-                    <th>Telefono</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
                     <th>Tipo de servicio</th>
                     <th>Observaciones servicio</th>
-                    <th>Categoria AFIP</th>
+                    <th>Categoría AFIP</th>
                     <th>Cuit / Cuil</th>
                     <th>Email</th>
                     <th>Acciones</th>
@@ -72,7 +73,7 @@
 
                 // Verificar si la consulta fue exitosa
                 if ($result === false) {
-                    echo "<tr><td colspan='3'>Error en la consulta: " . $conn->error . "</td></tr>";
+                    echo "<tr><td colspan='11'>Error en la consulta: " . $conn->error . "</td></tr>";
                 } else {
                     // Verificar si hay resultados
                     if ($result->num_rows > 0) {
@@ -89,11 +90,14 @@
                             echo "<td>" . $row["categoria_afip"] . "</td>";
                             echo "<td>" . $row["cuit_cuil"] . "</td>";
                             echo "<td>" . $row["mail"] . "</td>";
-                            echo "<td><a href='eliminar_proveedor.php?id=" . $row["id_proveedor"] . "' class='btn btn-danger'>Eliminar</a></td>";
+                            echo "<td>
+                                    <a href='editar_proveedor.php?id=" . $row["id_proveedor"] . "' class='btn btn-primary'>Modificar</a>
+                                    <a href='eliminar_proveedor.php?id=" . $row["id_proveedor"] . "' class='btn btn-danger'>Eliminar</a>
+                                  </td>";
                             echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='3'>No hay datos disponibles</td></tr>";
+                        echo "<tr><td colspan='11'>No hay datos disponibles</td></tr>";
                     }
                 }
 
@@ -103,10 +107,10 @@
             </tbody>
         </table>
 
-        <!-- Formulario para agregar nuevo legajo -->
+        <!-- Formulario para agregar nuevo proveedor -->
         <h2>Agregar Nuevo proveedor</h2>
         <form method="post" action="insertar_proveedor.php">
-        <div class="mb-3">
+            <div class="mb-3">
                 <label for="nombre_proveedor" class="form-label">Nombre completo</label>
                 <input type="text" class="form-control" id="nombre_proveedor" name="nombre_proveedor" required>
             </div>
@@ -115,11 +119,11 @@
                 <input type="text" class="form-control" id="dni" name="dni" required>
             </div>
             <div class="mb-3">
-                <label for="direccion" class="form-label">Direccion</label>
+                <label for="direccion" class="form-label">Dirección</label>
                 <input type="text" class="form-control" id="direccion" name="direccion" required>
             </div>
             <div class="mb-3">
-                <label for="telefono" class="form-label">Telefono</label>
+                <label for="telefono" class="form-label">Teléfono</label>
                 <input type="text" class="form-control" id="telefono" name="telefono" required>
             </div>
             <div class="mb-3">
@@ -131,7 +135,7 @@
                 <input type="text" class="form-control" id="observaciones_servicio" name="observaciones_servicio" required>
             </div>
             <div class="mb-3">
-                <label for="categoria_afip" class="form-label">Categoria AFIP</label>
+                <label for="categoria_afip" class="form-label">Categoría AFIP</label>
                 <input type="text" class="form-control" id="categoria_afip" name="categoria_afip" required>
             </div>
             <div class="mb-3">
@@ -140,10 +144,8 @@
             </div>
             <div class="mb-3">
                 <label for="mail" class="form-label">Mail</label>
-                <input type="text" class="mail" id="cuit_cuil" name="mail" required>
+                <input type="text" class="form-control" id="mail" name="mail" required>
             </div>
-
-
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>
