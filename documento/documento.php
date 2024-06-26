@@ -19,6 +19,7 @@
             background-color: #f2f2f2;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -34,7 +35,6 @@
             <br><br>
             <input type="submit" value="Redireccionar">
         </form>
-
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -122,9 +122,11 @@
                 <input type="text" class="form-control" id="link" name="link" required>
             </div>
             <div class="mb-3">
-               <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
-            <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
-           </div>
+                <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
+                <select id="cuit_cuil_select" class="form-control" name="cuit_cuil">
+                    <option value="">Seleccione un cuit/cuil</option>
+                </select>
+            </div>
             <div class="mb-3">
                 <label for="tipo_servicio" class="form-label">Tipo de servicio</label>
                 <input type="text" class="form-control" id="tipo_servicio" name="tipo_servicio" required>
@@ -145,45 +147,27 @@
         </form>
     </div>
 
-    <?php
-    // Configuración de la conexión a la base de datos
-    $servername = "localhost";
-    $username = "admin";
-    $password = "admin";
-    $dbname = "consejo";
-
-    // Crear conexión
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Verificar la conexión
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Ejecutar la consulta
-    $sql = "SELECT cuit_cuil, nombre_proveedor FROM proveedores UNION SELECT cuit_cuil, nombre_auxiliar FROM auxiliares";
-    $result = $conn->query($sql);
-
-    // Generar el select HTML
-    $select_html = '<select id="cuit_cuil_select" name="cuit_cuil">';
-    $select_html .= '<option value="">Seleccione un cuit/cuil</option>';
-
-    if ($result->num_rows > 0) {
-        // Almacenar los datos en el array
-        while($row = $result->fetch_assoc()) {
-            $select_html .= '<option value="' . $row['cuit_cuil'] . '">' . $row['nombre'] . ' (' . $row['cuit_cuil'] . ')</option>';
-        }
-    }
-
-    $select_html .= '</select>';
-
-    // Cerrar la conexión
-    $conn->close();
-    ?>
-
-    <h2>Seleccionar Cuit/Cuil</h2>
-    <?php
-    echo $select_html;
-    ?>
+    <script>
+        $(document).ready(function() {
+            // Hacer una solicitud AJAX para obtener los datos
+            $.ajax({
+                url: 'obtener_cuit_cuil.php', // Asegúrate de que esta ruta sea correcta
+                method: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    // Construir el select con los datos recibidos
+                    data.forEach(function(item) {
+                        $('#cuit_cuil_select').append('<option value="' + item.cuit_cuil + '">' + item.nombre + ' (' + item.cuit_cuil + ')</option>');
+                    });
+                },
+                error: function(error) {
+                    console.log('Error:', error);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+
+
+
