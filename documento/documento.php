@@ -126,7 +126,7 @@
                     <option value="">Seleccione un cuit/cuil</option>
                     <?php
                     // Consulta SQL para obtener CUIT/CUIL y nombres de auxiliares
-                    $sql_auxiliares = "SELECT cuit_cuil, nombre_auxiliar AS nombre FROM auxiliares";
+                    $sql_auxiliares = "SELECT cuit_cuil, nombre_auxiliar AS nombre FROM auxiliar";
                     $result_auxiliares = $conn->query($sql_auxiliares);
 
                     if ($result_auxiliares->num_rows > 0) {
@@ -136,7 +136,7 @@
                     }
 
                     // Consulta SQL para obtener CUIT/CUIL y nombres de proveedores
-                    $sql_proveedores = "SELECT cuit_cuil, nombre_proveedor AS nombre FROM proveedores";
+                    $sql_proveedores = "SELECT cuit_cuil, nombre_proveedor AS nombre FROM proveedor";
                     $result_proveedores = $conn->query($sql_proveedores);
 
                     if ($result_proveedores->num_rows > 0) {
