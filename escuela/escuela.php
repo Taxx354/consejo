@@ -24,16 +24,16 @@
     <div class="container">
         <h1 class="mt-5">Lista de Escuelas</h1>
         <h3>Selecciona una redireccion:</h3>
-        <form action="../redireccionar.php" method="post">
-            <select name="redireccion">
-                <option value="documento/documento.php">Documentos</option>
-                <option value="auxiliar/auxiliar.php">Auxiliares</option>
-                <option value="proveedores/proveedores.php">Proveedores</option>
-                <option value="legajo/legajo.php">Legajos</option>
-            </select>
+    <form action="../redireccionar.php" method="post">
+        <select name="redireccion">
+            <option value="documento/documento.php">Documentos</option>
+            <option value="auxiliar/auxiliar.php">Auxiliares</option>
+            <option value="proveedores/proveedores.php">Proveedores</option>
+            <option value="legajo/legajo.php">Legajos</option>
             <br><br>
-            <input type="submit" value="Redireccionar">
-        </form>
+        <input type="submit" value="Redireccionar">
+    </form>
+        </select>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -93,7 +93,7 @@
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='13'>No hay datos disponibles</td></tr>";
+                    echo "<tr><td colspan='11'>No hay datos disponibles</td></tr>";
                 }
 
                 // Cerrar conexión
@@ -131,15 +131,11 @@
             </div>
             <div class="mb-3">
                 <label for="mail_escuela" class="form-label">Email Escuela</label>
-                <input type="email" class="form-control" id="mail_escuela" name="mail_escuela" required>
+                <input type="text" class="form-control" id="mail_escuela" name="mail_escuela" required>
             </div>
             <div class="mb-3">
                 <label for="rama_escuela" class="form-label">Rama Escuela</label>
-                <select class="form-control" id="rama_escuela" name="rama_escuela" required>
-                    <option value="Inicial">Inicial</option>
-                    <option value="Primario">Primario</option>
-                    <option value="Secundario">Secundario</option>
-                </select>
+                <input type="text" class="form-control" id="rama_escuela" name="rama_escuela" required>
             </div>
             <div class="mb-3">
                 <label for="numero_escuela" class="form-label">Número Escuela</label>
@@ -147,7 +143,7 @@
             </div>
             <div class="mb-3">
                 <label for="cantidad_alumnos" class="form-label">Cantidad Alumnos</label>
-                <input type="number" class="form-control" id="cantidad_alumnos" name="cantidad_alumnos" required>
+                <input type="text" class="form-control" id="cantidad_alumnos" name="cantidad_alumnos" required>
             </div>
             <div class="mb-3">
                 <label for="fecha_fundacion" class="form-label">Fecha Fundación</label>
