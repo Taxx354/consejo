@@ -23,7 +23,7 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Lista de Documentos</h1>
-        <h3>Selecciona una redirección:</h3>
+        <h3>Selecciona una redireccion:</h3>
         <form action="../redireccionar.php" method="post">
             <select name="redireccion">
                 <option value="escuela/escuela.php">Escuelas</option>
@@ -34,7 +34,6 @@
             <br><br>
             <input type="submit" value="Redireccionar">
         </form>
-
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -109,90 +108,41 @@
                 <label for="id_esc" class="form-label">Escuela</label>
                 <input type="text" class="form-control" id="id_esc" name="id_esc" required>
             </div>
-            <BR>
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha</label>
                 <input type="date" class="form-control" id="fecha" name="fecha" required>
             </div>
-            <BR>
             <div class="mb-3">
                 <label for="titulo" class="form-label">Título</label>
                 <input type="text" class="form-control" id="titulo" name="titulo" required>
             </div>
-            <BR>
             <div class="mb-3">
                 <label for="link" class="form-label">Link</label>
                 <input type="text" class="form-control" id="link" name="link" required>
             </div>
-            <br>
             <div class="mb-3">
-               <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
-            <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
-           </div>
-           <BR>
+                <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
+                <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
+            </div>
             <div class="mb-3">
                 <label for="tipo_servicio" class="form-label">Tipo de servicio</label>
                 <input type="text" class="form-control" id="tipo_servicio" name="tipo_servicio" required>
             </div>
-            <BR>
             <div class="mb-3">
                 <label for="estado" class="form-label">Estado</label>
                 <input type="text" class="form-control" id="estado" name="estado" required>
             </div>
-            <BR>
             <div class="mb-3">
                 <label for="expediente" class="form-label">Expediente</label>
                 <input type="text" class="form-control" id="expediente" name="expediente" required>
             </div>
-            <br>
             <div class="mb-3">
                 <label for="historial_legajo" class="form-label">Documento Legajo</label>
                 <input type="text" class="form-control" id="historial_legajo" name="historial_legajo" required>
             </div>
-            <BR>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>
-
-    <?php
-    // Configuración de la conexión a la base de datos
-    $servername = "localhost";
-    $username = "admin";
-    $password = "admin";
-    $dbname = "consejo";
-
-    // Crear conexión
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Verificar la conexión
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Ejecutar la consulta
-    $sql = "SELECT cuit_cuil, nombre_proveedor FROM proveedores UNION SELECT cuit_cuil, nombre_auxiliar FROM auxiliares";
-    $result = $conn->query($sql);
-
-    // Generar el select HTML
-    $select_html = '<select id="cuit_cuil_select" name="cuit_cuil">';
-    $select_html .= '<option value="">Seleccione un cuit/cuil</option>';
-
-    if ($result->num_rows > 0) {
-        // Almacenar los datos en el array
-        while($row = $result->fetch_assoc()) {
-            $select_html .= '<option value="' . $row['cuit_cuil'] . '">' . $row['nombre'] . ' (' . $row['cuit_cuil'] . ')</option>';
-        }
-    }
-
-    $select_html .= '</select>';
-
-    // Cerrar la conexión
-    $conn->close();
-    ?>
-
-    <h2>Seleccionar Cuit/Cuil</h2>
-    <?php
-    echo $select_html;
-    ?>
 </body>
 </html>
+
