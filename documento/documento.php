@@ -23,7 +23,7 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Lista de Documentos</h1>
-        <h3>Selecciona una redireccion:</h3>
+        <h3>Selecciona una redirección:</h3>
         <form action="../redireccionar.php" method="post">
             <select name="redireccion">
                 <option value="escuela/escuela.php">Escuelas</option>
@@ -66,7 +66,7 @@
                     die("Conexión fallida: " . $conn->connect_error);
                 }
 
-                // Consulta SQL
+                // Consulta SQL para obtener documentos
                 $sql = "SELECT id_documento, id_esc, fecha, titulo, link, cuit_cuil, tipo_servicio, estado, expediente, historial_legajo FROM documentos";
                 $result = $conn->query($sql);
 
@@ -122,7 +122,33 @@
             </div>
             <div class="mb-3">
                 <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
-                <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
+                <select name="cuit_cuil" class="form-control" required>
+                    <option value="">Seleccione un cuit/cuil</option>
+                    <?php
+                    // Consulta SQL para obtener CUIT/CUIL y nombres de auxiliares
+                    $sql_auxiliares = "SELECT cuit_cuil, nombre_auxiliar AS nombre FROM auxiliares";
+                    $result_auxiliares = $conn->query($sql_auxiliares);
+
+                    if ($result_auxiliares->num_rows > 0) {
+                        while ($row_auxiliar = $result_auxiliares->fetch_assoc()) {
+                            echo "<option value='" . $row_auxiliar["cuit_cuil"] . "'>" . $row_auxiliar["nombre"] . " (" . $row_auxiliar["cuit_cuil"] . ")</option>";
+                        }
+                    }
+
+                    // Consulta SQL para obtener CUIT/CUIL y nombres de proveedores
+                    $sql_proveedores = "SELECT cuit_cuil, nombre_proveedor AS nombre FROM proveedores";
+                    $result_proveedores = $conn->query($sql_proveedores);
+
+                    if ($result_proveedores->num_rows > 0) {
+                        while ($row_proveedor = $result_proveedores->fetch_assoc()) {
+                            echo "<option value='" . $row_proveedor["cuit_cuil"] . "'>" . $row_proveedor["nombre"] . " (" . $row_proveedor["cuit_cuil"] . ")</option>";
+                        }
+                    }
+
+                    // Cerrar conexión
+                    $conn->close();
+                    ?>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="tipo_servicio" class="form-label">Tipo de servicio</label>
@@ -145,4 +171,5 @@
     </div>
 </body>
 </html>
+
 
