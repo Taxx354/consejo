@@ -92,7 +92,7 @@ $conn->close();
 <body>
     <div class="container">
         <h1 class="mt-5">Editar Proveedor</h1>
-        <form method="post" action="insertar_proveedor.php">
+        <form method="post" action="actualizar_proveedor.php">
             <input type="hidden" name="id_proveedor" value="<?php echo $id_proveedor; ?>">
             <div class="form-group">
                 <label for="nombre_proveedor">Nombre completo</label>

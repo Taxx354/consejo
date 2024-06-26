@@ -42,7 +42,7 @@ $conn->close();
 <body>
     <div class="container">
         <h1>insertar_escuela.php</h1>
-        <form method="post" action="insertar_escuela.php">
+        <form method="post" action="actualizar_escuela.php">
             <input type="hidden" name="id_esc" value="<?php echo $row['id_esc']; ?>">
             <div class="mb-3">
                 <label for="nombre_escuela" class="form-label">Nombre Escuela</label>
