@@ -28,8 +28,11 @@
         $id_auxiliar = $_GET['id'];
 
         // Consulta para obtener los datos del auxiliar
-        $sql = "SELECT * FROM auxiliar WHERE id_auxiliar = $id_auxiliar";
-        $result = $conn->query($sql);
+        $sql = "SELECT * FROM auxiliar WHERE id_auxiliar = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id_auxiliar);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         // Verificar si el auxiliar existe
         if ($result->num_rows > 0) {
@@ -37,7 +40,7 @@
         ?>
 
         <!-- Formulario para editar auxiliar -->
-        <form method="post" action="insertar_auxiliar.php">
+        <form method="post" action="actualizar_auxiliar.php">
             <input type="hidden" name="id_auxiliar" value="<?php echo $row['id_auxiliar']; ?>">
             <div class="mb-3">
                 <label for="nombre_auxiliar" class="form-label">Nombre completo</label>
@@ -84,6 +87,7 @@
         }
 
         // Cerrar conexión
+        $stmt->close();
         $conn->close();
         ?>
     </div>
