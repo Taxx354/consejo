@@ -1,0 +1,14 @@
+        <label for="duenio">Dueño:</label>
+        <select id="duenio" name="duenio">
+            <?php
+            $query_duenio = "SELECT ID_DUENIO, NOMBRE_DUENIO FROM Duenio";
+            $resultado_duenio = ibase_query($gestor_db, $query_duenio);
+            if (!$resultado_duenio) {
+                die("Error en la consulta Duenio: " . ibase_errmsg());
+            }
+
+            while ($fila_duenio = ibase_fetch_assoc($resultado_duenio)) {
+                echo '<option value="' . $fila_duenio['ID_DUENIO'] . '">' . $fila_duenio['NOMBRE_DUENIO'] . '</option>';
+            }
+            ?>
+        </select><br><br>
