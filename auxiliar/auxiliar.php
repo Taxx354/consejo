@@ -109,39 +109,56 @@
         <h2>Agregar Nuevo auxiliar</h2>
         <form method="post" action="insertar_auxiliar.php">
             <div class="mb-3">
-                <label for="nombre_auxiliar" class="form-label">Nombre completo</label>
+                <label for="nombre_auxiliar" class="form-label">Nombre completo:</label>
+                <br>
                 <input type="text" class="form-control" id="nombre_auxiliar" name="nombre_auxiliar" required>
             </div>
+            <br>
             <div class="mb-3">
-                <label for="dni_auxiliar" class="form-label">DNI</label>
+                <label for="dni_auxiliar" class="form-label">DNI:</label>
+                <br>
                 <input type="text" class="form-control" id="dni_auxiliar" name="dni_auxiliar" required>
             </div>
+            <br>
             <div class="mb-3">
-                <label for="direccion_auxiliar" class="form-label">Direccion</label>
+                <label for="direccion_auxiliar" class="form-label">Dirección:</label>
+                <br>
                 <input type="text" class="form-control" id="direccion_auxiliar" name="direccion_auxiliar" required>
             </div>
+            <br>
             <div class="mb-3">
-                <label for="telefono_auxiliar" class="form-label">Telefono</label>
+                <label for="telefono_auxiliar" class="form-label">Teléfono:</label>
+                <br>
                 <input type="text" class="form-control" id="telefono_auxiliar" name="telefono_auxiliar" required>
             </div>
+            <br>
             <div class="mb-3">
-                <label for="cargo_auxiliar" class="form-label">Cargo</label>
+                <label for="cargo_auxiliar" class="form-label">Cargo:</label>
+                <br>
                 <input type="text" class="form-control" id="cargo_auxiliar" name="cargo_auxiliar" required>
             </div>
+            <br>
             <div class="mb-3">
-                <label for="observaciones_cargo" class="form-label">Observaciones del cargo</label>
+                <label for="observaciones_cargo" class="form-label">Observaciones del cargo:</label>
+                <br>
                 <input type="text" class="form-control" id="observaciones_cargo" name="observaciones_cargo" required>
             </div>
+            <br>
             <div class="mb-3">
-                <label for="categoria_afip" class="form-label">Categoria AFIP</label>
+                <label for="categoria_afip" class="form-label">Categoría AFIP</label>
+                <br>
                 <input type="text" class="form-control" id="categoria_afip" name="categoria_afip" required>
             </div>
+            <br>
             <div class="mb-3">
                 <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
+                <br>
                 <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
             </div>
+            <br>
             <div class="mb-3">
                 <label for="mail_auxiliar" class="form-label">Mail</label>
+                <br>
                 <input type="email" class="form-control" id="mail_auxiliar" name="mail_auxiliar" required>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
