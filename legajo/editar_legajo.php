@@ -51,6 +51,13 @@ $conn->close();
     <title>Editar Legajo</title>
     <link rel="stylesheet" href="../estilo.css">
     <style>
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
         .form-group {
             margin-bottom: 20px;
         }
@@ -78,7 +85,7 @@ $conn->close();
 <body>
     <div class="container">
         <h1 class="mt-5">Editar Legajo</h1>
-        <a href="legajo.php" class="btn btn-secondary" style="position: absolute; top: 10px; left: 10px;">Volver</a>
+        <a href="legajo.php" class="btn btn-secondary mb-3">Volver</a>
         <form method="post" action="actualizar_legajo.php">
             <input type="hidden" name="id_legajo" value="<?php echo $id_legajo; ?>">
             <div class="form-group">
@@ -94,4 +101,5 @@ $conn->close();
     </div>
 </body>
 </html>
+
 
