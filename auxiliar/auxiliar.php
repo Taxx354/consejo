@@ -152,8 +152,12 @@
             <br>
             <div class="mb-3">
                 <label for="categoria_afip" class="form-label">Categoría AFIP</label>
-                <br>
-                <input type="text" class="form-control" id="categoria_afip" name="categoria_afip" required>
+                <select class="form-control" id="categoria_afip" name="categoria_afip" required>
+                    <option value="Monotributo">Monotributo</option>
+                    <option value="Autónomo">Autónomo</option>
+                    <option value="Responsable Inscripto">Responsable Inscripto</option>
+                    <option value="IVA Exento">IVA Exento</option>
+                </select>
             </div>
             <br>
             <div class="mb-3">
