@@ -58,10 +58,8 @@
                 $password = "admin";
                 $dbname = "consejo";
 
-                // Crear conexión
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
-                // Verificar conexión
                 if ($conn->connect_error) {
                     die("Conexión fallida: " . $conn->connect_error);
                 }
@@ -135,7 +133,7 @@
                         }
                     }
 
-                    // Consulta SQL para obtener CUIT/CUIL y nombres de proveedores
+                /*     // Consulta SQL para obtener CUIT/CUIL y nombres de proveedores
                     $sql_proveedores = "SELECT cuit_cuil, nombre_proveedor AS nombre FROM proveedor";
                     $result_proveedores = $conn->query($sql_proveedores);
 
@@ -143,9 +141,8 @@
                         while ($row_proveedor = $result_proveedores->fetch_assoc()) {
                             echo "<option value='" . $row_proveedor["cuit_cuil"] . "'>" . $row_proveedor["nombre"] . " (" . $row_proveedor["cuit_cuil"] . ")</option>";
                         }
-                    }
+                    } */
 
-                    // Cerrar conexión
                     $conn->close();
                     ?>
                 </select>
