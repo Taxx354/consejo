@@ -15,6 +15,7 @@
 <body>
     <div class="container">
         <h1>Editar Auxiliar</h1>
+        <a href="auxiliar.php" class="btn btn-secondary" style="position: absolute; top: 10px; left: 10px;">Volver</a>
         <?php
         // Datos de conexión
         $servername = "localhost";
