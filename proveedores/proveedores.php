@@ -29,9 +29,9 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Lista de proveedores</h1>
-        <h3>Selecciona una redirección:</h3>
         <form action="../redireccionar.php" method="post">
             <select name="redireccion">
+                <option value="">Seleccione una redirección</option>
                 <option value="escuela/escuela.php">Escuelas</option>
                 <option value="documento/documento.php">Documentos</option>
                 <option value="auxiliar/auxiliar.php">Auxiliares</option>

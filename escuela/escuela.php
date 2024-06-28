@@ -29,9 +29,9 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Lista de Escuelas</h1>
-        <h3>Selecciona una redireccion:</h3>
         <form action="../redireccionar.php" method="post">
             <select name="redireccion">
+                <option value="">Seleccione una redirección</option>
                 <option value="documento/documento.php">Documentos</option>
                 <option value="auxiliar/auxiliar.php">Auxiliares</option>
                 <option value="proveedores/proveedores.php">Proveedores</option>
@@ -145,6 +145,7 @@
             <div class="mb-3">
                 <label for="rama_escuela" class="form-label">Rama Escuela</label>
                 <select class="form-control" id="rama_escuela" name="rama_escuela" required>
+                    <option value="">Seleccione rama</option>
                     <option value="Inicial">Inicial</option>
                     <option value="Primario">Primario</option>
                     <option value="Secundario">Secundario</option>

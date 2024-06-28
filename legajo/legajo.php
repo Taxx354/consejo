@@ -69,6 +69,7 @@
                     <th>ID Legajo</th>
                     <th>Cuit / Cuil</th>
                     <th>Documento Legajo</th>
+                    <th>Proveedor o Auxiliar</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -89,7 +90,7 @@
                 }
 
                 // Consulta SQL
-                $sql = "SELECT id_legajo, cuit_cuil, historial_legajo FROM legajo"; // Asegúrate de que la tabla se llama 'legajo' y tiene estas columnas
+                $sql = "SELECT id_legajo, cuit_cuil, historial_legajo, proveedor_auxiliar FROM legajo"; // Asegúrate de que la tabla se llama 'legajo' y tiene estas columnas
                 $result = $conn->query($sql);
 
                 // Verificar si la consulta fue exitosa
@@ -104,6 +105,7 @@
                             echo "<td>" . $row["id_legajo"] . "</td>";
                             echo "<td>" . $row["cuit_cuil"] . "</td>";
                             echo "<td>" . $row["historial_legajo"] . "</td>";
+                            echo "<td>" . $row["proveedor_auxiliar"] . "</td>";
                             echo "<td>
                                     <a href='eliminar_legajo.php?id=" . $row["id_legajo"] . "' class='btn btn-danger'>Eliminar</a>
                                     <a href='editar_legajo.php?id=" . $row["id_legajo"] . "' class='btn btn-primary'>Modificar</a>
@@ -163,8 +165,11 @@
             </div>
             <div class="form-group">
                 <label for="proveedor_auxiliar" class="form-label">Proveedor o auxiliar</label>
-                <input type="text" class="form-control" id="proveedor_auxiliar" name="proveedor-auxiliar" required>
-                
+                <select class="form-control" id="proveedor-auxiliar" name="proveedor_auxiliar" required>
+                <option value="">Seleccione si es proveedor o auxiliar</option>
+                    <option value="Proveedor">Proveedor</option>
+                    <option value="Auxiliar">Auxiliar</option>
+                </select>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
