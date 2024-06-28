@@ -125,9 +125,14 @@ $conn->close();
                 <label for="observaciones_servicio">Observaciones de servicio</label>
                 <input type="text" id="observaciones_servicio" name="observaciones_servicio" value="<?php echo $observaciones_servicio; ?>" required>
             </div>
-            <div class="form-group">
-                <label for="categoria_afip">Categoría AFIP</label>
-                <input type="text" id="categoria_afip" name="categoria_afip" value="<?php echo $categoria_afip; ?>" required>
+            <div class="mb-3">
+                <label for="categoria_afip" class="form-label">Categoría AFIP</label>
+                <select class="form-control" id="categoria_afip" name="categoria_afip" required>
+                    <option value="Monotributo" <?php if ($row['categoria_afip'] == 'Monotributo') echo 'selected'; ?>>Monotributo</option>
+                    <option value="Autónomo" <?php if ($row['categoria_afip'] == 'Autónomo') echo 'selected'; ?>>Autónomo</option>
+                    <option value="Responsable Inscripto" <?php if ($row['categoria_afip'] == 'Responsable Inscripto') echo 'selected'; ?>>Responsable Inscripto</option>
+                    <option value="IVA Exento" <?php if ($row['categoria_afip'] == 'IVA Exento') echo 'selected'; ?>>IVA Exento</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="cuit_cuil">Cuit / Cuil</label>

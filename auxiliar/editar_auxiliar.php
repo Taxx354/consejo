@@ -73,8 +73,13 @@
                 <input type="text" class="form-control" id="observaciones_cargo" name="observaciones_cargo" value="<?php echo $row['observaciones_cargo']; ?>" required>
             </div>
             <div class="mb-3">
-                <label for="categoria_afip" class="form-label">Categoria AFIP</label>
-                <input type="text" class="form-control" id="categoria_afip" name="categoria_afip" value="<?php echo $row['categoria_afip']; ?>" required>
+                <label for="categoria_afip" class="form-label">Categoría AFIP</label>
+                <select class="form-control" id="categoria_afip" name="categoria_afip" required>
+                    <option value="Monotributo" <?php if ($row['categoria_afip'] == 'Monotributo') echo 'selected'; ?>>Monotributo</option>
+                    <option value="Autónomo" <?php if ($row['categoria_afip'] == 'Autónomo') echo 'selected'; ?>>Autónomo</option>
+                    <option value="Responsable Inscripto" <?php if ($row['categoria_afip'] == 'Responsable Inscripto') echo 'selected'; ?>>Responsable Inscripto</option>
+                    <option value="IVA Exento" <?php if ($row['categoria_afip'] == 'IVA Exento') echo 'selected'; ?>>IVA Exento</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
