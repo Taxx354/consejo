@@ -9,6 +9,9 @@
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
     <title>Lista de documentos</title>
     <link rel="stylesheet" href="../estilo.css">
     <style>
@@ -90,8 +93,8 @@
                         echo "<td>" . $row["expediente"] . "</td>";
                         echo "<td>" . $row["historial_legajo"] . "</td>";
                         echo "<td>";
-                        echo "<a href='eliminar_documento.php?id=" . $row["id_documento"] . "' class='btn btn-danger'>Eliminar</a> ";
-                        echo "<a href='editar_documento.php?id=" . $row["id_documento"] . "' class='btn btn-warning'>Modificar</a>";
+                        echo "<a href='eliminar_documento.php?id=" . $row["id_documento"] . "' class='btn btn-danger'><i class='fas fa-trash-alt'></i></a> ";
+                        echo "<a href='editar_documento.php?id=" . $row["id_documento"] . "' class='btn btn-primary'><i class='fas fa-edit'></i></a>";
                         echo "</td>";
                         echo "</tr>";
                     }
@@ -178,3 +181,4 @@
     </div>
 </body>
 </html>
+
