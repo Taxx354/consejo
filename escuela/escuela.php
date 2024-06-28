@@ -96,6 +96,10 @@
                         echo "<td>" . $row["cantidad_alumnos"] . "</td>";
                         echo "<td>" . $row["fecha_fundacion"] . "</td>";
                         echo "<td><a href='eliminar_escuela.php?id=" . $row["id_esc"] . "' class='btn btn-danger'>Eliminar</a> <a href='editar_escuela.php?id=" . $row["id_esc"] . "' class='btn btn-warning'>Modificar</a></td>";
+                        echo "<td>
+                                    <a href='eliminar_escuela.php?id=" . $row["id_esc"] . "' class='btn btn-danger'>Eliminar</a>
+                                    <a href='editar_escuela.php?id=" . $row["id_esc"] . "' class='btn btn-primary'>Modificar</a>
+                                  </td>";
                         echo "</tr>";
                     }
                 } else {

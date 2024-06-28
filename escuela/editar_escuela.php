@@ -48,6 +48,7 @@ $conn->close();
 <body>
     <div class="container">
         <h1>Modificar registro</h1>
+        <a href="escuela.php" class="btn btn-secondary" style="position: absolute; top: 10px; left: 10px;">Volver</a>
         <form method="post" action="actualizar_escuela.php">
             <input type="hidden" name="id_esc" value="<?php echo $row['id_esc']; ?>">
             <div class="mb-3">
@@ -103,3 +104,4 @@ $conn->close();
     </div>
 </body>
 </html>
+
