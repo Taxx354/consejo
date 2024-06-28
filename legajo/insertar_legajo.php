@@ -16,9 +16,11 @@ if ($conn->connect_error) {
 // Obtener datos del formulario
 $cuit_cuil = $_POST['cuit_cuil'];
 $historial_legajo = $_POST['historial_legajo'];
+$proveedor_auxiliar = $_POST['proveedor_auxiliar'];
+
 
 // Consulta SQL para insertar datos
-$sql = "INSERT INTO legajo (cuit_cuil, historial_legajo) VALUES ('$cuit_cuil', '$historial_legajo')";
+$sql = "INSERT INTO legajo (cuit_cuil, historial_legajo, proveedor_auxiliar) VALUES ('$cuit_cuil', '$historial_legajo', '$proveedor_auxiliar')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Nuevo legajo agregado exitosamente";
