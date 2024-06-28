@@ -96,9 +96,12 @@
                             echo "<td>" . $row["categoria_afip"] . "</td>";
                             echo "<td>" . $row["cuit_cuil"] . "</td>";
                             echo "<td>" . $row["mail_auxiliar"] . "</td>";
-                            echo "<td><a href='eliminar_auxiliar.php?id=" . $row["id_auxiliar"] . "' class='btn btn-danger'>Eliminar</a> ";
-                            echo "<a href='editar_auxiliar.php?id=" . $row["id_auxiliar"] . "' class='btn btn-warning'>Modificar</a></td>";
+                            echo "<td>
+                            <a href='eliminar_auxiliar.php?id=" . $row["id_auxiliar"] . "' class='btn btn-danger'>Eliminar</a>
+                            <a href='editar_auxiliar.php?id=" . $row["id_auxiliar"] . "' class='btn btn-primary'>Modificar</a>
+                          </td>";
                             echo "</tr>";
+                            
                         }
                     } else {
                         echo "<tr><td colspan='11'>No hay datos disponibles</td></tr>";
