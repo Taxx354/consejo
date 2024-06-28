@@ -124,13 +124,47 @@
         <!-- Formulario para agregar nuevo legajo -->
         <h2>Agregar Nuevo Legajo</h2>
         <form method="post" action="insertar_legajo.php">
-            <div class="form-group">
+        <div class="form-group">
                 <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
-                <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
+                <select name="cuit_cuil" id="cuit_cuil" class="form-control" required>
+                    <option value="">Seleccione un cuit/cuil</option>
+                    <?php
+                    // Conexión a la base de datos para obtener cuit/cuil y nombre_auxiliar
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+                    if ($conn->connect_error) {
+                        die("Conexión fallida: " . $conn->connect_error);
+                    }
+
+                    $sql_auxiliares = "SELECT cuit_cuil, nombre_auxiliar FROM auxiliar";
+                    $result_auxiliares = $conn->query($sql_auxiliares);
+
+                    if ($result_auxiliares->num_rows > 0) {
+                        while ($row_auxiliar = $result_auxiliares->fetch_assoc()) {
+                            echo "<option value='" . $row_auxiliar["cuit_cuil"] . "'>" . $row_auxiliar["nombre_auxiliar"] . " (" . $row_auxiliar["cuit_cuil"] . ")</option>";
+                        }
+                    }
+                    $sql_proveedores = "SELECT cuit_cuil, nombre_proveedor FROM proveedor";
+                    $result_proveedores = $conn->query($sql_proveedores);
+            
+                    // Verificar y mostrar resultados de la tabla proveedor
+                    if ($result_proveedores->num_rows > 0) {
+                        while ($row_proveedor = $result_proveedores->fetch_assoc()) {
+                            echo "<option value='" . $row_proveedor["cuit_cuil"] . "'>" . $row_proveedor["nombre_proveedor"] . " (" . $row_proveedor["cuit_cuil"] . ")</option>";
+                        }
+                    }
+                    $conn->close();
+                    ?>
+                </select>
             </div>
             <div class="form-group">
                 <label for="historial_legajo" class="form-label">Documento Legajo</label>
                 <input type="text" class="form-control" id="historial_legajo" name="historial_legajo" required>
+            </div>
+            <div class="form-group">
+                <label for="proveedor_auxiliar" class="form-label">Proveedor o auxiliar</label>
+                <input type="text" class="form-control" id="proveedor_auxiliar" name="proveedor-auxiliar" required>
+                
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>

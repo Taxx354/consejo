@@ -144,7 +144,15 @@
                             echo "<option value='" . $row_auxiliar["cuit_cuil"] . "'>" . $row_auxiliar["nombre_auxiliar"] . " (" . $row_auxiliar["cuit_cuil"] . ")</option>";
                         }
                     }
-
+                    $sql_proveedores = "SELECT cuit_cuil, nombre_proveedor FROM proveedor";
+                    $result_proveedores = $conn->query($sql_proveedores);
+            
+                    // Verificar y mostrar resultados de la tabla proveedor
+                    if ($result_proveedores->num_rows > 0) {
+                        while ($row_proveedor = $result_proveedores->fetch_assoc()) {
+                            echo "<option value='" . $row_proveedor["cuit_cuil"] . "'>" . $row_proveedor["nombre_proveedor"] . " (" . $row_proveedor["cuit_cuil"] . ")</option>";
+                        }
+                    }
                     $conn->close();
                     ?>
                 </select>
