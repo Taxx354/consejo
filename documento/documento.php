@@ -29,9 +29,9 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Lista de Documentos</h1>
-        <h3>Selecciona una redirección:</h3>
         <form action="../redireccionar.php" method="post">
             <select name="redireccion">
+                <option value="">Seleccione una redirección</option>
                 <option value="escuela/escuela.php">Escuelas</option>
                 <option value="auxiliar/auxiliar.php">Auxiliares</option>
                 <option value="proveedores/proveedores.php">Proveedores</option>
@@ -108,10 +108,31 @@
         <!-- Formulario para agregar nuevo documento -->
         <h2>Agregar Nuevo Documento</h2>
         <form method="post" action="insertar_documento.php">
-            <div class="mb-3">
-                <label for="id_esc" class="form-label">Escuela</label>
-                <input type="text" class="form-control" id="id_esc" name="id_esc" required>
-            </div>
+        <div class="mb-3">
+        <label for="id_esc" class="form-label">Escuela</label>
+        <select name="id_esc" id="id_esc" class="form-control" required>
+            <option value="">Seleccione una escuela</option>
+            <?php
+            // Conexión a la base de datos para obtener id_esc y nombre_escuela
+            $conn = new mysqli($servername, $username, $password, $dbname);
+
+            if ($conn->connect_error) {
+                die("Conexión fallida: " . $conn->connect_error);
+            }
+
+            $sql_escuelas = "SELECT id_esc, nombre_escuela FROM escuela";
+            $result_escuelas = $conn->query($sql_escuelas);
+
+            if ($result_escuelas->num_rows > 0) {
+                while ($row_escuela = $result_escuelas->fetch_assoc()) {
+                    echo "<option value='" . $row_escuela["id_esc"] . "'>" . $row_escuela["nombre_escuela"] . "</option>";
+                }
+            }
+
+            $conn->close();
+            ?>
+        </select>
+    </div>
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha</label>
                 <input type="date" class="form-control" id="fecha" name="fecha" required>

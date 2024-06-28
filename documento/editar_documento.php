@@ -110,24 +110,25 @@
                 <label for="link" class="form-label">Link</label>
                 <input type="text" class="form-control" id="link" name="link" value="<?php echo $row['link']; ?>" required>
             </div>
-            <div class="form-group">
-                <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
-                <select name="cuit_cuil" class="form-control" required>
-                    <option value="">Seleccione un cuit/cuil</option>
-                    <?php
-                    // Consulta SQL para obtener CUIT/CUIL y nombres de auxiliares
-                    $sql_auxiliares = "SELECT cuit_cuil, nombre_auxiliar FROM auxiliar";
-                    $result_auxiliares = $conn->query($sql_auxiliares);
+            <div class="mb-3">
+    <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
+    <select name="cuit_cuil" class="form-control" required>
+        <option value="">Seleccione un cuit/cuil</option>
+        <?php
+        // Consulta SQL para obtener CUIT/CUIL y nombres de auxiliares
+        $sql_auxiliares = "SELECT cuit_cuil, nombre_auxiliar FROM auxiliar";
+        $result_auxiliares = $conn->query($sql_auxiliares);
 
-                    if ($result_auxiliares->num_rows > 0) {
-                        while ($row_auxiliar = $result_auxiliares->fetch_assoc()) {
-                            $selected = ($row_auxiliar["cuit_cuil"] == $row['cuit_cuil']) ? 'selected' : '';
-                            echo "<option value='" . $row_auxiliar["cuit_cuil"] . "' $selected>" . $row_auxiliar["nombre_auxiliar"] . " (" . $row_auxiliar["cuit_cuil"] . ")</option>";
-                        }
-                    }
-                    ?>
-                </select>
-            </div>
+        if ($result_auxiliares->num_rows > 0) {
+            while ($row_auxiliar = $result_auxiliares->fetch_assoc()) {
+                $selected = ($row_auxiliar["cuit_cuil"] == $row['cuit_cuil']) ? 'selected' : '';
+                echo "<option value='" . $row_auxiliar["cuit_cuil"] . "' $selected>" . $row_auxiliar["nombre_auxiliar"] . " (" . $row_auxiliar["cuit_cuil"] . ")</option>";
+            }
+        }
+        ?>
+    </select>
+</div>
+
             <div class="form-group">
                 <label for="tipo_servicio" class="form-label">Tipo de servicio</label>
                 <input type="text" class="form-control" id="tipo_servicio" name="tipo_servicio" value="<?php echo $row['tipo_servicio']; ?>" required>

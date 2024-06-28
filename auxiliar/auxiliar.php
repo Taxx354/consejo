@@ -29,9 +29,9 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Lista de auxiliares</h1>
-        <h3>Selecciona una redireccion:</h3>
         <form action="../redireccionar.php" method="post">
             <select name="redireccion">
+                <option value="">Seleccione una redirección</option>
                 <option value="escuela/escuela.php">Escuelas</option>
                 <option value="documento/documento.php">Documentos</option>
                 <option value="proveedores/proveedores.php">Proveedores</option>
@@ -156,6 +156,7 @@
             <div class="mb-3">
                 <label for="categoria_afip" class="form-label">Categoría AFIP</label>
                 <select class="form-control" id="categoria_afip" name="categoria_afip" required>
+                    <option value="">Seleccione categoría</option>
                     <option value="Monotributo">Monotributo</option>
                     <option value="Autónomo">Autónomo</option>
                     <option value="Responsable Inscripto">Responsable Inscripto</option>
