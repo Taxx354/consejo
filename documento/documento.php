@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <!-- Bootstrap CSS -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!--Bootstrap Bundle with Popper -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
+
     <title>Lista de documentos</title>
     <link rel="stylesheet" href="../estilo.css">
     <style>
@@ -126,28 +126,24 @@
             </div>
             <div class="mb-3">
                 <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
-                <select name="cuit_cuil" class="form-control" required>
+                <select name="cuit_cuil" id="cuit_cuil" class="form-control" required>
                     <option value="">Seleccione un cuit/cuil</option>
                     <?php
-                    // Consulta SQL para obtener CUIT/CUIL y nombres de auxiliares
-                    $sql_auxiliares = "SELECT cuit_cuil, nombre_auxiliar AS nombre FROM auxiliar";
+                    // Conexión a la base de datos para obtener cuit/cuil y nombre_auxiliar
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+                    if ($conn->connect_error) {
+                        die("Conexión fallida: " . $conn->connect_error);
+                    }
+
+                    $sql_auxiliares = "SELECT cuit_cuil, nombre_auxiliar FROM auxiliar";
                     $result_auxiliares = $conn->query($sql_auxiliares);
 
                     if ($result_auxiliares->num_rows > 0) {
                         while ($row_auxiliar = $result_auxiliares->fetch_assoc()) {
-                            echo "<option value='" . $row_auxiliar["cuit_cuil"] . "'>" . $row_auxiliar["nombre"] . " (" . $row_auxiliar["cuit_cuil"] . ")</option>";
+                            echo "<option value='" . $row_auxiliar["cuit_cuil"] . "'>" . $row_auxiliar["nombre_auxiliar"] . " (" . $row_auxiliar["cuit_cuil"] . ")</option>";
                         }
                     }
-
-                /*     // Consulta SQL para obtener CUIT/CUIL y nombres de proveedores
-                    $sql_proveedores = "SELECT cuit_cuil, nombre_proveedor AS nombre FROM proveedor";
-                    $result_proveedores = $conn->query($sql_proveedores);
-
-                    if ($result_proveedores->num_rows > 0) {
-                        while ($row_proveedor = $result_proveedores->fetch_assoc()) {
-                            echo "<option value='" . $row_proveedor["cuit_cuil"] . "'>" . $row_proveedor["nombre"] . " (" . $row_proveedor["cuit_cuil"] . ")</option>";
-                        }
-                    } */
 
                     $conn->close();
                     ?>
@@ -174,5 +170,3 @@
     </div>
 </body>
 </html>
-
-
