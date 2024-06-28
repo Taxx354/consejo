@@ -141,10 +141,13 @@
                 <label for="expediente" class="form-label">Expediente</label>
                 <input type="text" class="form-control" id="expediente" name="expediente" value="<?php echo $row['expediente']; ?>" required>
             </div>
-            <div class="form-group">
-                <label for="historial_legajo" class="form-label">Documento Legajo</label>
-                <input type="text" class="form-control" id="historial_legajo" name="historial_legajo" value="<?php echo $row['historial_legajo']; ?>" required>
-            </div>
+            <div class="mb-3">
+            <form action="insertar_documento.php" method="post" enctype="multipart/form-data">
+    <label for="historial_legajo">Selecciona un archivo (documento legajo):</label>
+    <input type="file" id="avatar" name="avatar" accept="" />
+    <br>
+    <input type="submit" value="Enviar Archivo" />
+    </div>
             <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </form>
 

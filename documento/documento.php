@@ -194,11 +194,11 @@
                 <input type="text" class="form-control" id="expediente" name="expediente" required>
             </div>
             <div class="mb-3">
-                <label for="historial_legajo" class="form-label">Documento Legajo</label>
-                <input type="text" class="form-control" id="historial_legajo" name="historial_legajo" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Guardar</button>
-        </form>
+            <form action="insertar_documento.php" method="post" enctype="multipart/form-data">
+    <label for="historial_legajo">Selecciona un archivo (documento legajo):</label>
+    <input type="file" id="historial_legajo" name="historial_legajo" accept="" />
+    <br>
+    <input type="submit" value="Enviar Archivo" />
     </div>
 </body>
 </html>
