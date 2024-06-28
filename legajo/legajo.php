@@ -163,8 +163,11 @@
             </div>
             <div class="form-group">
                 <label for="proveedor_auxiliar" class="form-label">Proveedor o auxiliar</label>
-                <input type="text" class="form-control" id="proveedor_auxiliar" name="proveedor-auxiliar" required>
-                
+                <select class="form-control" id="proveedor-auxiliar" name="proveedor_auxiliar" required>
+                <option value="">Seleccione un cuit/cuil</option>
+                    <option value="proveedor">Proveedor</option>
+                    <option value="auxiliar">Auxiliar</option>
+                </select>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
