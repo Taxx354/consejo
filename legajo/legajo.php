@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <!-- Bootstrap CSS -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!--Bootstrap Bundle with Popper -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-   <!--  Font Awesome CSS -->
+    <!-- Font Awesome CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     
     <title>Lista de Legajos</title>
@@ -49,13 +49,24 @@
             cursor: pointer;
         }
     </style>
+    <script>
+        function validateForm() {
+            var redireccion = document.forms["redireccionForm"]["redireccion"].value;
+            if (redireccion == "") {
+                alert("Por favor, seleccione una redirección.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1 class="mt-5">Lista de Legajos</h1>
         <h3>Selecciona una redirección:</h3>
-        <form action="../redireccionar.php" method="post">
+        <form name="redireccionForm" action="../redireccionar.php" method="post" onsubmit="return validateForm()">
             <select name="redireccion">
+                <option value="">Seleccione una redirección</option>
                 <option value="escuela/escuela.php">Escuelas</option>
                 <option value="documento/documento.php">Documentos</option>
                 <option value="auxiliar/auxiliar.php">Auxiliares</option>
@@ -97,7 +108,7 @@
 
                 // Verificar si la consulta fue exitosa
                 if ($result === false) {
-                    echo "<tr><td colspan='4'>Error en la consulta: " . $conn->error . "</td></tr>";
+                    echo "<tr><td colspan='5'>Error en la consulta: " . $conn->error . "</td></tr>";
                 } else {
                     // Verificar si hay resultados
                     if ($result->num_rows > 0) {
@@ -109,13 +120,13 @@
                             echo "<td>" . $row["historial_legajo"] . "</td>";
                             echo "<td>" . $row["proveedor_auxiliar"] . "</td>";
                             echo "<td>";
-                        echo "<a href='eliminar_legajo.php?id=" . $row["id_legajo"] . "' class='btn btn-danger'><i class='fas fa-trash-alt'></i></a> ";
-                        echo "<a href='editar_legajo.php?id=" . $row["id_legajo"] . "' class='btn btn-primary'><i class='fas fa-edit'></i></a>";
-                        echo "</td>";
-                        echo "</tr>";
+                            echo "<a href='eliminar_legajo.php?id=" . $row["id_legajo"] . "' class='btn btn-danger'><i class='fas fa-trash-alt'></i></a> ";
+                            echo "<a href='editar_legajo.php?id=" . $row["id_legajo"] . "' class='btn btn-primary'><i class='fas fa-edit'></i></a>";
+                            echo "</td>";
+                            echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='4'>No hay datos disponibles</td></tr>";
+                        echo "<tr><td colspan='5'>No hay datos disponibles</td></tr>";
                     }
                 }
 
@@ -128,7 +139,7 @@
         <!-- Formulario para agregar nuevo legajo -->
         <h2>Agregar Nuevo Legajo</h2>
         <form method="post" action="insertar_legajo.php">
-        <div class="form-group">
+            <div class="form-group">
                 <label for="cuit_cuil" class="form-label">Cuit / Cuil</label>
                 <select name="cuit_cuil" id="cuit_cuil" class="form-control" required>
                     <option value="">Seleccione un cuit/cuil</option>
@@ -150,7 +161,7 @@
                     }
                     $sql_proveedores = "SELECT cuit_cuil, nombre_proveedor FROM proveedor";
                     $result_proveedores = $conn->query($sql_proveedores);
-            
+
                     // Verificar y mostrar resultados de la tabla proveedor
                     if ($result_proveedores->num_rows > 0) {
                         while ($row_proveedor = $result_proveedores->fetch_assoc()) {
@@ -168,7 +179,7 @@
             <div class="form-group">
                 <label for="proveedor_auxiliar" class="form-label">Proveedor o auxiliar</label>
                 <select class="form-control" id="proveedor-auxiliar" name="proveedor_auxiliar" required>
-                <option value="">Seleccione si es proveedor o auxiliar</option>
+                    <option value="">Seleccione si es proveedor o auxiliar</option>
                     <option value="Proveedor">Proveedor</option>
                     <option value="Auxiliar">Auxiliar</option>
                 </select>
@@ -178,3 +189,4 @@
     </div>
 </body>
 </html>
+
