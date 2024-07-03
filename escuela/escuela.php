@@ -8,6 +8,8 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!--Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     
     <title>Lista de Escuelas</title>
     <link rel="stylesheet" href="../estilo.css">
@@ -95,10 +97,10 @@
                         echo "<td>" . $row["numero_escuela"] . "</td>";
                         echo "<td>" . $row["cantidad_alumnos"] . "</td>";
                         echo "<td>" . $row["fecha_fundacion"] . "</td>";
-                        echo "<td>
-                                    <a href='eliminar_escuela.php?id=" . $row["id_esc"] . "' class='btn btn-danger'>Eliminar</a>
-                                    <a href='editar_escuela.php?id=" . $row["id_esc"] . "' class='btn btn-primary'>Modificar</a>
-                                  </td>";
+                        echo "<td>";
+                        echo "<a href='eliminar_escuela.php?id=" . $row["id_esc"] . "' class='btn btn-danger'><i class='fas fa-trash-alt'></i></a> ";
+                        echo "<a href='editar_escuela.php?id=" . $row["id_esc"] . "' class='btn btn-primary'><i class='fas fa-edit'></i></a>";
+                        echo "</td>";
                         echo "</tr>";
                     }
                 } else {
