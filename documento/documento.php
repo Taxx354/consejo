@@ -102,7 +102,7 @@
                         echo "<td>" . $row["tipo_servicio"] . "</td>";
                         echo "<td>" . $row["estado"] . "</td>";
                         echo "<td>" . $row["expediente"] . "</td>";
-                        echo "<td>" . $row["historial_legajo"] . "</td>";
+                        echo "<td><a href='" . $row["historial_legajo"] . "'>Ver archivo</a></td>"; // Enlace para ver el archivo
                         echo "<td>";
                         echo "<a href='eliminar_documento.php?id=" . $row["id_documento"] . "' class='btn btn-danger'><i class='fas fa-trash-alt'></i></a> ";
                         echo "<a href='editar_documento.php?id=" . $row["id_documento"] . "' class='btn btn-primary'><i class='fas fa-edit'></i></a>";
@@ -121,32 +121,32 @@
 
         <!-- Formulario para agregar nuevo documento -->
         <h2>Agregar Nuevo Documento</h2>
-        <form method="post" action="insertar_documento.php">
-        <div class="mb-3">
-        <label for="id_esc" class="form-label">Escuela</label>
-        <select name="id_esc" id="id_esc" class="form-control" required>
-            <option value="">Seleccione una escuela</option>
-            <?php
-            // Conexión a la base de datos para obtener id_esc y nombre_escuela
-            $conn = new mysqli($servername, $username, $password, $dbname);
+        <form method="post" action="insertar_documento.php" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="id_esc" class="form-label">Escuela</label>
+                <select name="id_esc" id="id_esc" class="form-control" required>
+                    <option value="">Seleccione una escuela</option>
+                    <?php
+                    // Conexión a la base de datos para obtener id_esc y nombre_escuela
+                    $conn = new mysqli($servername, $username, $password, $dbname);
 
-            if ($conn->connect_error) {
-                die("Conexión fallida: " . $conn->connect_error);
-            }
+                    if ($conn->connect_error) {
+                        die("Conexión fallida: " . $conn->connect_error);
+                    }
 
-            $sql_escuelas = "SELECT id_esc, nombre_escuela FROM escuela";
-            $result_escuelas = $conn->query($sql_escuelas);
+                    $sql_escuelas = "SELECT id_esc, nombre_escuela FROM escuela";
+                    $result_escuelas = $conn->query($sql_escuelas);
 
-            if ($result_escuelas->num_rows > 0) {
-                while ($row_escuela = $result_escuelas->fetch_assoc()) {
-                    echo "<option value='" . $row_escuela["id_esc"] . "'>" . $row_escuela["nombre_escuela"] . "</option>";
-                }
-            }
+                    if ($result_escuelas->num_rows > 0) {
+                        while ($row_escuela = $result_escuelas->fetch_assoc()) {
+                            echo "<option value='" . $row_escuela["id_esc"] . "'>" . $row_escuela["nombre_escuela"] . "</option>";
+                        }
+                    }
 
-            $conn->close();
-            ?>
-        </select>
-    </div>
+                    $conn->close();
+                    ?>
+                </select>
+            </div>
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha</label>
                 <input type="date" class="form-control" id="fecha" name="fecha" required>
@@ -181,19 +181,19 @@
                     }
                     $sql_proveedores = "SELECT cuit_cuil, nombre_proveedor FROM proveedor";
                     $result_proveedores = $conn->query($sql_proveedores);
-            
-                    // Verificar y mostrar resultados de la tabla proveedor
+
                     if ($result_proveedores->num_rows > 0) {
                         while ($row_proveedor = $result_proveedores->fetch_assoc()) {
                             echo "<option value='" . $row_proveedor["cuit_cuil"] . "'>" . $row_proveedor["nombre_proveedor"] . " (" . $row_proveedor["cuit_cuil"] . ")</option>";
                         }
                     }
+
                     $conn->close();
                     ?>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="tipo_servicio" class="form-label">Tipo de servicio</label>
+                <label for="tipo_servicio" class="form-label">Tipo de Servicio</label>
                 <input type="text" class="form-control" id="tipo_servicio" name="tipo_servicio" required>
             </div>
             <div class="mb-3">
@@ -205,12 +205,13 @@
                 <input type="text" class="form-control" id="expediente" name="expediente" required>
             </div>
             <div class="mb-3">
-            <form action="insertar_documento.php" method="post" enctype="multipart/form-data">
-    <label for="historial_legajo">Selecciona un archivo (documento legajo):</label>
-    <input type="file" id="historial_legajo" name="historial_legajo" accept="" />
-    <br>
-    <input type="submit" value="Enviar Archivo" />
+                <label for="historial_legajo" class="form-label">Documento Legajo</label>
+                <input type="file" class="form-control" id="historial_legajo" name="historial_legajo" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar Documento</button>
+        </form>
     </div>
 </body>
 </html>
+
 
