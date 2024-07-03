@@ -115,16 +115,31 @@
     <select name="cuit_cuil" class="form-control" required>
         <option value="">Seleccione un cuit/cuil</option>
         <?php
-        // Consulta SQL para obtener CUIT/CUIL y nombres de auxiliares
+        
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+            die("Conexión fallida: " . $conn->connect_error);
+        }
+
         $sql_auxiliares = "SELECT cuit_cuil, nombre_auxiliar FROM auxiliar";
         $result_auxiliares = $conn->query($sql_auxiliares);
 
         if ($result_auxiliares->num_rows > 0) {
             while ($row_auxiliar = $result_auxiliares->fetch_assoc()) {
-                $selected = ($row_auxiliar["cuit_cuil"] == $row['cuit_cuil']) ? 'selected' : '';
-                echo "<option value='" . $row_auxiliar["cuit_cuil"] . "' $selected>" . $row_auxiliar["nombre_auxiliar"] . " (" . $row_auxiliar["cuit_cuil"] . ")</option>";
+                echo "<option value='" . $row_auxiliar["cuit_cuil"] . "'>" . $row_auxiliar["nombre_auxiliar"] . " (" . $row_auxiliar["cuit_cuil"] . ")</option>";
             }
         }
+        $sql_proveedores = "SELECT cuit_cuil, nombre_proveedor FROM proveedor";
+        $result_proveedores = $conn->query($sql_proveedores);
+
+        // Verificar y mostrar resultados de la tabla proveedor
+        if ($result_proveedores->num_rows > 0) {
+            while ($row_proveedor = $result_proveedores->fetch_assoc()) {
+                echo "<option value='" . $row_proveedor["cuit_cuil"] . "'>" . $row_proveedor["nombre_proveedor"] . " (" . $row_proveedor["cuit_cuil"] . ")</option>";
+            }
+        }
+        $conn->close();
         ?>
     </select>
 </div>
@@ -156,8 +171,6 @@
             echo "<p>Documento no encontrado.</p>";
         }
 
-        // Cerrar conexión
-        $conn->close();
         ?>
     </div>
 </body>
