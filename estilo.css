@@ -5,12 +5,14 @@ body {
     padding: 0;
     color: #333;
     overflow-x: hidden; /* Evita el scroll horizontal */
+    display: flex;
+    justify-content: center; /* Centra el contenedor horizontalmente */
 }
 
 .container {
     width: 100%; /* Se ajusta al ancho de la pantalla */
     max-width: 80%; /* Máximo 80% de ancho */
-    margin: 50px auto;
+    margin: 50px 0; /* Márgenes verticales */
     box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
     padding: 0 10px; /* Agrega un poco de padding para pantallas pequeñas */
 }
