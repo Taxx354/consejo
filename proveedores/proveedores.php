@@ -27,22 +27,32 @@
             background-color: #f2f2f2;
         }
     </style>
+    <script>
+        function validateForm() {
+            var redireccion = document.forms["redireccionForm"]["redireccion"].value;
+            if (redireccion == "") {
+                alert("Por favor, seleccione una redirección.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1 class="mt-5">Lista de proveedores</h1>
-        <form action="../redireccionar.php" method="post">
+        <h3>Selecciona una redirección:</h3>
+        <form name="redireccionForm" action="../redireccionar.php" method="post" onsubmit="return validateForm()">
             <select name="redireccion">
                 <option value="">Seleccione una redirección</option>
                 <option value="escuela/escuela.php">Escuelas</option>
                 <option value="documento/documento.php">Documentos</option>
-                <option value="auxiliar/auxiliar.php">Auxiliares</option>
                 <option value="legajo/legajo.php">Legajos</option>
+                <option value="auxiliar/auxiliar.php">Auxiliares</option>
             </select>
             <br><br>
             <input type="submit" value="Redireccionar">
         </form>
-
         <table class="table table-bordered">
             <thead>
                 <tr>
