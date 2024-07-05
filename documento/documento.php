@@ -54,6 +54,14 @@
             <br><br>
             <input type="submit" value="Redireccionar">
         </form>
+
+        <!-- Buscador -->
+        <h3>Buscar por título:</h3>
+        <form method="get" action="">
+            <input type="text" name="search" placeholder="Buscar título" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>">
+            <input type="submit" value="Buscar">
+        </form>
+
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -85,7 +93,10 @@
                 }
 
                 // Consulta SQL para obtener documentos
-                $sql = "SELECT id_documento, id_esc, fecha, titulo, link, cuit_cuil, tipo_servicio, estado, expediente, historial_legajo FROM documentos";
+                $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
+                $sql = "SELECT id_documento, id_esc, fecha, titulo, link, cuit_cuil, tipo_servicio, estado, expediente, historial_legajo 
+                        FROM documentos 
+                        WHERE titulo LIKE '%$search%'";
                 $result = $conn->query($sql);
 
                 // Verificar si hay resultados
@@ -213,5 +224,6 @@
     </div>
 </body>
 </html>
+
 
 
