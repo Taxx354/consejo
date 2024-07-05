@@ -80,14 +80,28 @@ if ($uploadOk == 0) {
     }
 }
 
+ // Obtener datos del formulario
+ $searchType = $_POST['search_type'];
+ $search = $_POST['search'];
+ $driveFileId = $_POST['drive_file_id'];
+
+
 // Consulta SQL para insertar datos en la tabla documentos
-$stmt = $conn->prepare("INSERT INTO documentos (id_documento, id_esc, fecha, titulo, link, cuit_cuil, tipo_servicio, estado, expediente, historial_legajo) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO documentos (id_documento, id_esc, fecha, titulo, link, cuit_cuil, tipo_servicio, estado, expediente, historial_legajo, search_type, search, drive_file_id) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("issssssss", $id_esc, $fecha, $titulo, $link, $cuit_cuil, $tipo_servicio, $estado, $expediente, $target_file);
 
 if ($stmt->execute()) {
     echo "Nuevo documento agregado correctamente";
 } else {
     echo "Error al insertar documento: " . $stmt->error;
+}
+$stmt = $conn->prepare($sql);
+
+$stmt->bind_param("sss", $searchType, $search, $driveFileId);
+if ($stmt->execute()) {
+    echo "Datos guardados correctamente.";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 // Cerrar conexión a la base de datos
