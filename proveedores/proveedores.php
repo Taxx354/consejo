@@ -53,6 +53,13 @@
             <br><br>
             <input type="submit" value="Redireccionar">
         </form>
+
+        <h3>Buscar por nombre o DNI del proveedor:</h3>
+        <form method="get" action="">
+            <input type="text" name="search" placeholder="Buscar proveedor" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>">
+            <input type="submit" value="Buscar">
+        </form>
+        
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -77,6 +84,8 @@
                 $password = "admin";
                 $dbname = "consejo";
 
+
+
                 // Crear conexión
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -87,6 +96,10 @@
 
                 // Consulta SQL
                 $sql = "SELECT id_proveedor, nombre_proveedor, dni, direccion, telefono, tipo_servicio, observaciones_servicio, categoria_afip, cuit_cuil, mail FROM proveedor"; // Asegúrate de que la tabla se llama 'proveedor' y tiene estas columnas
+                $result = $conn->query($sql);
+
+                $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
+                $sql = "SELECT * FROM proveedor WHERE nombre_proveedor or dni LIKE '%$search%'";
                 $result = $conn->query($sql);
 
                 // Verificar si la consulta fue exitosa
@@ -166,8 +179,8 @@
                 <input type="text" class="form-control" id="cuit_cuil" name="cuit_cuil" required>
             </div>
             <div class="mb-3">
-                <label for="mail" class="form-label">Mail</label>
-                <input type="text" class="form-control" id="mail" name="mail" required>
+                <label for="email" class="form-label">Mail</label>
+                <input type="email" class="form-control" id="mail" name="mail" required>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>

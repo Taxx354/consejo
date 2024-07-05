@@ -25,7 +25,7 @@ $cuit_cuil = $_POST['cuit_cuil'];
 $mail = $_POST['mail'];
 
 // Consulta SQL para insertar datos
-$sql = "INSERT INTO proveedor ( nombre_proveedor, dni, direccion, telefono, tipo_servicio, observaciones_servicio, categoria_afip, cuit_cuil, mail)
+$sql = "INSERT INTO proveedor (nombre_proveedor, dni, direccion, telefono, tipo_servicio, observaciones_servicio, categoria_afip, cuit_cuil, mail)
 VALUES ('$nombre_proveedor', '$dni', '$direccion', '$telefono', '$tipo_servicio', '$observaciones_servicio', '$categoria_afip', '$cuit_cuil', '$mail')";
 
 if ($conn->query($sql) === TRUE) {

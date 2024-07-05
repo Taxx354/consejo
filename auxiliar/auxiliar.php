@@ -52,7 +52,11 @@
             <br><br>
             <input type="submit" value="Redireccionar">
         </form>
-
+        <h3>Buscar por nombre o DNI del auxiliar:</h3>
+        <form method="get" action="">
+            <input type="text" name="search" placeholder="Buscar auxiliar" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>">
+            <input type="submit" value="Buscar">
+        </form>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -87,6 +91,10 @@
 
                 // Consulta SQL
                 $sql = "SELECT id_auxiliar, nombre_auxiliar, dni_auxiliar, direccion_auxiliar, telefono_auxiliar, cargo_auxiliar, observaciones_cargo, categoria_afip, cuit_cuil, mail_auxiliar FROM auxiliar";
+                $result = $conn->query($sql);
+
+                $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
+                $sql = "SELECT * FROM auxiliar WHERE nombre_auxiliar or dni_auxiliar LIKE '%$search%'";
                 $result = $conn->query($sql);
 
                 // Verificar si la consulta fue exitosa

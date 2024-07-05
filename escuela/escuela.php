@@ -53,6 +53,12 @@
             <br><br>
             <input type="submit" value="Redireccionar">
         </form>
+        <h3>Buscar por escuela:</h3>
+        <form method="get" action="">
+            <input type="text" name="search" placeholder="Buscar escuela" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>">
+            <input type="submit" value="Buscar">
+        </form>
+        
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -90,6 +96,11 @@
                 // Consulta SQL
                 $sql = "SELECT id_esc, nombre_escuela, direccion_escuela, director, vicedirector, telefono_director, telefono_escuela, mail_escuela, rama_escuela, numero_escuela, cantidad_alumnos, fecha_fundacion FROM escuela";
                 $result = $conn->query($sql);
+
+                $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
+                $sql = "SELECT * FROM escuela WHERE nombre_escuela LIKE '%$search%'";
+                $result = $conn->query($sql);
+
 
                 // Verificar si hay resultados
                 if ($result->num_rows > 0) {
