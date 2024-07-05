@@ -213,7 +213,12 @@
             </div>
             <div class="mb-3">
                 <label for="expediente" class="form-label">Expediente</label>
-                <input type="text" class="form-control" id="expediente" name="expediente" required>
+                <select class="form-control" id="expediente" name="expediente" required>
+                    <option value="">Seleccione un expediente</option>
+                    <option value="Inicio">Inicio</option>
+                    <option value="En proceso">En proceso</option>
+                    <option value="Finalizado">Finalizado</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="historial_legajo" class="form-label">Documento Legajo</label>
