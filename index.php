@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base de datos consejo escolar</title>
+    <title>Consejo escolar</title>
     <link rel="stylesheet" href="estilo.css">
     <style>
         body {
@@ -67,7 +67,7 @@
     </style>
 </head>
 <body>
-    <h1>Base de datos consejo escolar</h1>
+    <h1>Página principal <br> consejo escolar</h1>
     <div class="button-container">
         <a href="documento/documento.php">Documentos</a>
         <a href="escuela/escuela.php">Escuelas</a>
