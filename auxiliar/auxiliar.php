@@ -82,8 +82,10 @@ footer {
         </ul>
         </nav>
 
-
+        <br>
+        <h1>Lista de auxiliares</h1>
         <h3>Buscar por nombre o DNI del auxiliar:</h3>
+        <br>
         <form method="get" action="">
             <input type="text" name="search" placeholder="Buscar auxiliar" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>">
             <input type="submit" value="Buscar">
