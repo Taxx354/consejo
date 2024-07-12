@@ -69,11 +69,11 @@
 <body>
     <h1>Página principal <br> consejo escolar</h1>
     <div class="button-container">
-        <a href="documento/documento.php">Documentos</a>
-        <a href="escuela/escuela.php">Escuelas</a>
         <a href="proveedores/proveedores.php">Proveedores</a>
-        <a href="auxiliar/auxiliar.php">Auxiliares</a>
+        <a href="escuela/escuela.php">Escuelas</a>
         <a href="legajo/legajo.php">Legajos</a>
+        <a href="auxiliar/auxiliar.php">Auxiliares</a>
+        <a href="documento/documento.php">Documentos</a>
     </div>
 </body>
 </html>
