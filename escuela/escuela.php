@@ -14,6 +14,18 @@
     <title>Lista de Escuelas</title>
     <link rel="stylesheet" href="../estilo.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f0f0f0 25%, #c0c0c0 100%);
+            background-attachment: fixed;
+            animation: backgroundAnimation 10s ease-in-out infinite alternate;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
