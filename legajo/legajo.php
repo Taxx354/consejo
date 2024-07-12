@@ -33,7 +33,7 @@
             display: block;
             margin-bottom: 5px;
         }
-        .form-group input {
+        .form-group input, .form-group select {
             width: 100%;
             padding: 8px;
             font-size: 1rem;
@@ -48,34 +48,32 @@
             border-radius: 4px;
             cursor: pointer;
         }
-    </style>
-    <script>
-        function validateForm() {
-            var redireccion = document.forms["redireccionForm"]["redireccion"].value;
-            if (redireccion == "") {
-                alert("Por favor, seleccione una redirección.");
-                return false;
-            }
-            return true;
+        .btn-filter {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
-    </script>
+        
+    </style>
 </head>
 <body>
     <div class="container">
         <h1 class="mt-5">Lista de Legajos</h1>
-        <h3>Selecciona una redirección:</h3>
-        <form name="redireccionForm" action="../redireccionar.php" method="post" onsubmit="return validateForm()">
-            <select name="redireccion">
-                <option value="">Seleccione una redirección</option>
-                <option value="escuela/escuela.php">Escuelas</option>
-                <option value="documento/documento.php">Documentos</option>
-                <option value="auxiliar/auxiliar.php">Auxiliares</option>
-                <option value="proveedores/proveedores.php">Proveedores</option>
-            </select>
-            <br><br>
-            <input type="submit" value="Redireccionar">
+<br>
+        <form method="post" action="">
+            <button type="submit" name="filter" value="Todo" class="btn-filter">Mostrar todos</button>
+            <button type="submit" name="filter" value="Proveedor" class="btn-filter">Filtrar Proveedores</button>
+            <button type="submit" name="filter" value="Auxiliar" class="btn-filter">Filtrar Auxiliares</button>
         </form>
-
+<br>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -102,8 +100,17 @@
                     die("Conexión fallida: " . $conn->connect_error);
                 }
 
-                // Consulta SQL
-                $sql = "SELECT id_legajo, cuit_cuil, historial_legajo, proveedor_auxiliar FROM legajo"; // Asegúrate de que la tabla se llama 'legajo' y tiene estas columnas
+                $filter = $_POST['filter'] ?? '';
+
+                // Consulta SQL según el filtro
+                if ($filter === 'Proveedor') {
+                    $sql = "SELECT * FROM legajo WHERE proveedor_auxiliar = 'Proveedor'";
+                } elseif ($filter === 'Auxiliar') {
+                    $sql = "SELECT * FROM legajo WHERE proveedor_auxiliar = 'Auxiliar'";
+                } else {
+                    $sql = "SELECT * FROM legajo";
+                }
+
                 $result = $conn->query($sql);
 
                 // Verificar si la consulta fue exitosa
@@ -189,4 +196,3 @@
     </div>
 </body>
 </html>
-
