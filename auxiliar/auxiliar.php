@@ -233,5 +233,8 @@ footer {
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>
+    <footer>
+        <p><em>© 2024 Corsiglia - Tempel - Salas</em></p>
+    </footer>
 </body>
 </html>

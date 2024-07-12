@@ -75,5 +75,9 @@
         <a href="auxiliar/auxiliar.php">Auxiliares</a>
         <a href="documento/documento.php">Documentos</a>
     </div>
+
+    <footer>
+        <p><em>© 2024 Corsiglia - Tempel - Salas</em></p>
+    </footer>
 </body>
 </html>
