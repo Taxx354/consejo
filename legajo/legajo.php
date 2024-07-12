@@ -125,6 +125,7 @@ footer {
             <button type="submit" name="filter" value="Auxiliar" class="btn-filter">Filtrar Auxiliares</button>
         </form>
         <!-- Buscador -->
+         <br>
   <h3>Buscar por título:</h3>
         <form method="get" action="">
             <input type="text" name="search" placeholder="Buscar por CUIT/CUIL" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>">
@@ -145,8 +146,6 @@ footer {
             </thead>
             <tbody>
                 <?php
-
-                
                 // Datos de conexión
                 $servername = "localhost";
                 $username = "admin";
@@ -155,8 +154,6 @@ footer {
 
                 // Crear conexión
                 $conn = new mysqli($servername, $username, $password, $dbname);
-
-   
 
                 // Verificar conexión
                 if ($conn->connect_error) {
@@ -173,13 +170,8 @@ footer {
                 } else {
                     $sql = "SELECT * FROM legajo";
                 }
-                $result = $conn->query($sql);
 
-                  $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
-                  $sql = "SELECT id_legajo, cuit_cuil, historial_legajo, proveedor_auxiliar
-                          FROM legajo
-                          WHERE cuit_cuil LIKE '%$search%'";
-                  $result = $conn->query($sql);
+                $result = $conn->query($sql);
 
                 // Verificar si la consulta fue exitosa
                 if ($result === false) {
@@ -212,6 +204,7 @@ footer {
         </table>
 
         <!-- Formulario para agregar nuevo legajo -->
+         <br>
         <h2>Agregar Nuevo Legajo</h2>
         <form method="post" action="insertar_legajo.php">
             <div class="form-group">
@@ -264,3 +257,4 @@ footer {
     </div>
 </body>
 </html>
+0 
