@@ -88,6 +88,8 @@ footer {
         <form method="get" action="">
             <input type="text" name="search" placeholder="Buscar escuela" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>">
             <input type="submit" value="Buscar">
+            <input type="button" value="reiniciar" onclick="window.location.href='?';" style="padding: 1px 16px; margin-left: 5px;">
+            </form>
         </form>
         
         <table class="table table-bordered">
@@ -131,7 +133,7 @@ footer {
                 $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
                 $sql = "SELECT * FROM escuela WHERE nombre_escuela LIKE '%$search%'";
                 $result = $conn->query($sql);
-
+                
 
                 // Verificar si hay resultados
                 if ($result->num_rows > 0) {

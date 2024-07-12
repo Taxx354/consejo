@@ -87,8 +87,10 @@ footer {
 
         <h3>Buscar por nombre o DNI del proveedor:</h3>
         <form method="get" action="">
-            <input type="text" name="search" placeholder="Buscar proveedor" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>">
+            <input type="text" name="search" placeholder="Buscar por DNI" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>">
             <input type="submit" value="Buscar">
+            <input type="button" value="reiniciar" onclick="window.location.href='?';" style="padding: 1px 16px; margin-left: 5px;">
+            </form>
         </form>
         
         <table class="table table-bordered">

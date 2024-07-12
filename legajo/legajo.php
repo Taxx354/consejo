@@ -124,7 +124,15 @@ footer {
             <button type="submit" name="filter" value="Proveedor" class="btn-filter">Filtrar Proveedores</button>
             <button type="submit" name="filter" value="Auxiliar" class="btn-filter">Filtrar Auxiliares</button>
         </form>
+        <!-- Buscador -->
+  <h3>Buscar por título:</h3>
+        <form method="get" action="">
+            <input type="text" name="search" placeholder="Buscar por CUIT/CUIL" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>">
+            <input type="submit" value="Buscar" style= "padding: 1px 12px;">
+            <input type="button" value="reiniciar" onclick="window.location.href='?';" style="padding: 1px 16px; margin-left: 5px;">
+            </form>
 <br>
+ 
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -137,6 +145,8 @@ footer {
             </thead>
             <tbody>
                 <?php
+
+                
                 // Datos de conexión
                 $servername = "localhost";
                 $username = "admin";
@@ -145,6 +155,8 @@ footer {
 
                 // Crear conexión
                 $conn = new mysqli($servername, $username, $password, $dbname);
+
+   
 
                 // Verificar conexión
                 if ($conn->connect_error) {
@@ -161,8 +173,13 @@ footer {
                 } else {
                     $sql = "SELECT * FROM legajo";
                 }
-
                 $result = $conn->query($sql);
+
+                  $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
+                  $sql = "SELECT id_legajo, cuit_cuil, historial_legajo, proveedor_auxiliar
+                          FROM legajo
+                          WHERE cuit_cuil LIKE '%$search%'";
+                  $result = $conn->query($sql);
 
                 // Verificar si la consulta fue exitosa
                 if ($result === false) {
