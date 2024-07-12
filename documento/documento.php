@@ -27,33 +27,103 @@
         th {
             background-color: #f2f2f2;
         }
-    </style>
-    <script>
-        function validateForm() {
-            var redireccion = document.forms["redireccionForm"]["redireccion"].value;
-            if (redireccion == "") {
-                alert("Por favor, seleccione una redirección.");
-                return false;
-            }
-            return true;
+        .navbar {
+            margin-bottom: 20px;
         }
-    </script>
+        .navbar-nav .nav-link {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+        nav {
+            background-color: #eee;
+            padding: 1em;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 2em;
+        }
+
+        footer {
+            background-color: rgba(51, 51, 51, 0.9);
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 0;
+        }
+        .navbar {
+    margin-bottom: 20px;
+}
+.navbar-nav .nav-link {
+    padding: 10px 15px;
+    font-size: 16px;
+}
+nav {
+    background-color: #eee;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+section {
+    padding: 2em;
+}
+
+footer {
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 0;
+}
+    </style>
 </head>
 <body>
     <div class="container">
+         <!-- Barra de navegación -->
+         <!-- Barra de navegación -->
+         <nav>
+        <ul>
+            <li><a href="../index.php">Volver a inicio</a></li>
+            <li><a href="../proveedores/proveedores.php"><em>Proveedores</em></a></li>
+            <li><a href="../escuela/escuela.php">Escuelas</a></li>
+            <li><a href="../legajo/legajo.php">Legajos</a></li>
+            <li><a href="../auxiliar/auxiliar.php">Auxiliares</a></li>
+            <li><em>documento</em></li>
+        </ul>
+        </nav>
         <h1 class="mt-5">Lista de Documentos</h1>
-        <h3>Selecciona una redirección:</h3>
-        <form name="redireccionForm" action="../redireccionar.php" method="post" onsubmit="return validateForm()">
-            <select name="redireccion">
-                <option value="">Seleccione una redirección</option>
-                <option value="escuela/escuela.php">Escuelas</option>
-                <option value="legajo/legajo.php">Legajos</option>
-                <option value="auxiliar/auxiliar.php">Auxiliares</option>
-                <option value="proveedores/proveedores.php">Proveedores</option>
-            </select>
-            <br><br>
-            <input type="submit" value="Redireccionar">
-        </form>
 
         <!-- Buscador -->
         <h3>Buscar por título:</h3>
@@ -230,6 +300,3 @@
     </div>
 </body>
 </html>
-
-
-

@@ -26,33 +26,64 @@
         th {
             background-color: #f2f2f2;
         }
+        .navbar {
+    margin-bottom: 20px;
+}
+.navbar-nav .nav-link {
+    padding: 10px 15px;
+    font-size: 16px;
+}
+nav {
+    background-color: #eee;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+section {
+    padding: 2em;
+}
+
+footer {
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 0;
+}
     </style>
-    <script>
-        function validateForm() {
-            var redireccion = document.forms["redireccionForm"]["redireccion"].value;
-            if (redireccion == "") {
-                alert("Por favor, seleccione una redirección.");
-                return false;
-            }
-            return true;
-        }
-    </script>
+    
 </head>
 <body>
     <div class="container">
+         <!-- Barra de navegación -->
+         <nav>
+        <ul>
+            <li><a href="../index.php">Volver a inicio</a></li>
+            <li><a href="../proveedores/proveedores.php">Proveedores</a></li>
+            <li><em>Escuelas</em></li>
+            <li><a href="../legajo/legajo.php">Legajos</a></li>
+            <li><a href="../auxiliar/auxiliar.php">Auxiliares</a></li>
+            <li><a href="../documento/documento.php">documento</a></li>
+        </ul>
+        </nav>
         <h1 class="mt-5">Lista de Escuelas</h1>
-        <h3>Selecciona una redirección:</h3>
-        <form name="redireccionForm" action="../redireccionar.php" method="post" onsubmit="return validateForm()">
-            <select name="redireccion">
-                <option value="">Seleccione una redirección</option>
-                <option value="legajo/legajo.php">Legajos</option>
-                <option value="documento/documento.php">Documentos</option>
-                <option value="auxiliar/auxiliar.php">Auxiliares</option>
-                <option value="proveedores/proveedores.php">Proveedores</option>
-            </select>
-            <br><br>
-            <input type="submit" value="Redireccionar">
-        </form>
+        
         <h3>Buscar por escuela:</h3>
         <form method="get" action="">
             <input type="text" name="search" placeholder="Buscar escuela" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>">

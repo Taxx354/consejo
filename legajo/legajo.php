@@ -61,11 +61,62 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        
+        .navbar {
+    margin-bottom: 20px;
+}
+.navbar-nav .nav-link {
+    padding: 10px 15px;
+    font-size: 16px;
+}
+nav {
+    background-color: #eee;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+section {
+    padding: 2em;
+}
+
+footer {
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 0;
+}
     </style>
 </head>
 <body>
     <div class="container">
+         <!-- Barra de navegación -->
+         <nav>
+        <ul>
+            <li><a href="../index.php">Volver a inicio</a></li>
+            <li><a href="/proveedores/proveedores.php"><em>Proveedores</em></a></li>
+            <li><a href="../escuela/escuela.php">Escuelas</a></li>
+            <li><em>Legajos</em></li>
+            <li><a href="../auxiliar/auxiliar.php">Auxiliares</a></li>
+            <li><a href="../documento/documento.php">documento</a></li>
+        </ul>
+        </nav>
+    </nav>
         <h1 class="mt-5">Lista de Legajos</h1>
 <br>
         <form method="post" action="">
