@@ -127,7 +127,7 @@ footer {
         <!-- Buscador -->
   <h3>Buscar por título:</h3>
         <form method="get" action="">
-            <input type="text" name="search" placeholder="Buscar cuit_cuil" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>">
+            <input type="text" name="search" placeholder="Buscar por CUIT/CUIL" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>">
             <input type="submit" value="Buscar" style= "padding: 1px 12px;">
             <input type="button" value="reiniciar" onclick="window.location.href='?';" style="padding: 1px 16px; margin-left: 5px;">
             </form>
