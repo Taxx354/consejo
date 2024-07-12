@@ -1,6 +1,0 @@
-botones de la página documento (se deben reemplazar los dos anteriores)
-
-echo "<td>
-                            <a href='eliminar_documento.php?id=" . $row["id_documento"] . "' class='btn btn-danger'>Eliminar</a>
-                            <a href='editar_documento.php?id=" . $row["id_documento"] . "' class='btn btn-primary'>Modificar</a>
-                          </td>";
