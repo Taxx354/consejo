@@ -79,7 +79,7 @@ footer {
             <li><em>Escuelas</em></li>
             <li><a href="../legajo/legajo.php">Legajos</a></li>
             <li><a href="../auxiliar/auxiliar.php">Auxiliares</a></li>
-            <li><a href="../documento/documento.php">documento</a></li>
+            <li><a href="../documento/documento.php">Documentos</a></li>
         </ul>
         </nav>
         <h1 class="mt-5">Lista de Escuelas</h1>
@@ -204,6 +204,18 @@ footer {
                     <option value="Inicial">Inicial</option>
                     <option value="Primario">Primario</option>
                     <option value="Secundario">Secundario</option>
+                    <option value="Secundario">Adultos</option>
+                    <option value="Secundario">Media</option>
+                    <option value="Secundario">Técnica</option>
+                    <option value="Secundario">Agraria</option>
+                    <option value="Secundario">Especial</option>
+                    <option value="Secundario">Psicología</option>
+                    <option value="Secundario">Contexto de encierro</option>
+                    <option value="Secundario">CENS (nocturna) </option>
+                    <option value="Secundario">Formación profesional</option>
+
+
+
                 </select>
             </div>
             <div class="mb-3">

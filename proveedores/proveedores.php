@@ -79,7 +79,7 @@ footer {
             <li><a href="../escuela/escuela.php">Escuelas</a></li>
             <li><a href="../legajo/legajo.php">Legajos</a></li>
             <li><a href="../auxiliar/auxiliar.php">Auxiliares</a></li>
-            <li><a href="../documento/documento.php">documento</a></li>
+            <li><a href="../documento/documento.php">Documentos</a></li>
         </ul>
         </nav>
         <h1 class="mt-5">Lista de proveedores</h1>

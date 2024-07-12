@@ -116,11 +116,11 @@ footer {
          <nav>
         <ul>
             <li><a href="../index.php">Volver a inicio</a></li>
-            <li><a href="../proveedores/proveedores.php"><em>Proveedores</em></a></li>
+            <li><a href="../proveedores/proveedores.php">Proveedores</a></li>
             <li><a href="../escuela/escuela.php">Escuelas</a></li>
             <li><a href="../legajo/legajo.php">Legajos</a></li>
             <li><a href="../auxiliar/auxiliar.php">Auxiliares</a></li>
-            <li><em>documento</em></li>
+            <li><em>Documentos</em></li>
         </ul>
         </nav>
         <h1 class="mt-5">Lista de Documentos</h1>

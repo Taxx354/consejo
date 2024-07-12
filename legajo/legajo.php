@@ -109,11 +109,11 @@ footer {
          <nav>
         <ul>
             <li><a href="../index.php">Volver a inicio</a></li>
-            <li><a href="/proveedores/proveedores.php"><em>Proveedores</em></a></li>
+            <li><a href="../proveedores/proveedores.php">Proveedores</a></li>
             <li><a href="../escuela/escuela.php">Escuelas</a></li>
             <li><em>Legajos</em></li>
             <li><a href="../auxiliar/auxiliar.php">Auxiliares</a></li>
-            <li><a href="../documento/documento.php">documento</a></li>
+            <li><a href="../documento/documento.php">Documentos</a></li>
         </ul>
         </nav>
     </nav>
