@@ -126,9 +126,9 @@ footer {
         <h1 class="mt-5">Lista de Documentos</h1>
 
         <!-- Buscador -->
-        <h3>Buscar por título:</h3>
+        <h3>Buscar por título o por Cuit/Cuil:</h3>
         <form method="get" action="">
-            <input type="text" name="search" placeholder="Buscar título" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>">
+            <input type="text" name="search" placeholder="" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>">
             <input type="submit" value="Buscar">
         </form>
 
@@ -165,8 +165,10 @@ footer {
                 // Consulta SQL para obtener documentos
                 $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
                 $sql = "SELECT id_documento, id_esc, fecha, titulo, link, cuit_cuil, tipo_servicio, estado, expediente, historial_legajo 
-                        FROM documentos 
-                        WHERE titulo LIKE '%$search%'";
+        FROM documentos 
+        WHERE titulo LIKE '%$search%' 
+        OR cuit_cuil LIKE '%$search%'"; 
+
                 $result = $conn->query($sql);
 
                 // Verificar si hay resultados
