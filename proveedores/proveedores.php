@@ -200,6 +200,7 @@ footer {
             <div class="mb-3">
                 <label for="categoria_afip" class="form-label">Categoría AFIP</label>
                 <select class="form-control" id="categoria_afip" name="categoria_afip" required>
+                    <option value="">Seleccione categoría</option>
                     <option value="Monotributo">Monotributo</option>
                     <option value="Autónomo">Autónomo</option>
                     <option value="Responsable Inscripto">Responsable Inscripto</option>
