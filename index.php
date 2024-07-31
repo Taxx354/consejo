@@ -46,8 +46,8 @@
 
         .button-container a {
             display: block;
-            width: 200px;
-            padding: 15px;
+            width: 250px; /* Ancho ajustado */
+            padding: 20px; /* Padding ajustado */
             text-align: center;
             text-decoration: none;
             background: linear-gradient(135deg, #007bff, #0056b3);
@@ -64,10 +64,21 @@
             transform: scale(1.05);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
+
+        footer {
+            margin-top: auto;
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
-    <h1>Página principal <br> consejo escolar</h1>
+    <h1>Consejo Escolar</h1>
     <div class="button-container">
         <a href="proveedores/proveedores.php">Proveedores</a>
         <a href="escuela/escuela.php">Escuelas</a>
@@ -77,7 +88,7 @@
     </div>
 
     <footer>
-        <p><em>© 2024 Corsiglia - Tempel - Salas</em></p>
+        <p><em>© 2024 INFO - E.E.S.T N°1 Magdalena</em></p>
     </footer>
 </body>
 </html>
