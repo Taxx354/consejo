@@ -8,8 +8,8 @@ if (!isset($_POST['id_esc']) || empty($_POST['id_esc'])) {
 $id_esc = $_POST['id_esc'];
 // Datos de conexión
 $servername = "localhost";
-$username = "admin";
-$password = "admin";
+$username = "root";
+$password = "";
 $dbname = "consejo";
 
 // Crear conexión

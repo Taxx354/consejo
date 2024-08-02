@@ -50,9 +50,9 @@
         <?php
         // Datos de conexión
         $servername = "localhost";
-        $username = "admin";
-        $password = "admin";
-        $dbname = "consejo";
+ $username = "root";
+ $password = "";
+ $dbname = "consejo";
 
         // Crear conexión
         $conn = new mysqli($servername, $username, $password, $dbname);

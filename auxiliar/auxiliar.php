@@ -112,8 +112,8 @@ footer {
                 <?php
                 // Datos de conexión
                 $servername = "localhost";
-                $username = "admin";
-                $password = "admin";
+                $username = "root";
+                $password = "";
                 $dbname = "consejo";
 
                 // Crear conexión
@@ -234,7 +234,7 @@ footer {
         </form>
     </div>
     <footer>
-        <p><em>© 2024 Corsiglia - Tempel - Salas</em></p>
+        <p><em>© 2024 INFO - E.E.S.T N°1 Magdalena</em></p>
     </footer>
 </body>
 </html>

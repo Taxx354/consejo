@@ -8,8 +8,8 @@ $id_legajo = $_GET['id'];
 
 // Datos de conexión
 $servername = "localhost";
-$username = "admin";
-$password = "admin";
+$username = "root";
+$password = "";
 $dbname = "consejo";
 
 // Crear conexión
