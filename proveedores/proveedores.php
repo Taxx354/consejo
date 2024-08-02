@@ -110,22 +110,9 @@ footer {
             </thead>
             <tbody>
                 <?php
-                // Datos de conexión
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "consejo";
 
-
-
-                // Crear conexión
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
-                // Verificar conexión
-                if ($conn->connect_error) {
-                    die("Conexión fallida: " . $conn->connect_error);
-                }
-
+require_once '../conexion.php';
+ 
                 // Consulta SQL
                 $sql = "SELECT id_proveedor, nombre_proveedor, dni, direccion, telefono, tipo_servicio, observaciones_servicio, categoria_afip, cuit_cuil, mail FROM proveedor"; // Asegúrate de que la tabla se llama 'proveedor' y tiene estas columnas
                 $result = $conn->query($sql);
