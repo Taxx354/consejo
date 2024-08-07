@@ -46,8 +46,8 @@
 
         .button-container a {
             display: block;
-            width: 250px; /* Ancho ajustado */
-            padding: 20px; /* Padding ajustado */
+            width: 250px; 
+            padding: 20px; 
             text-align: center;
             text-decoration: none;
             background: linear-gradient(135deg, #007bff, #0056b3);
