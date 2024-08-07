@@ -112,19 +112,9 @@ footer {
             </thead>
             <tbody>
                 <?php
-                // Datos de conexión
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "consejo";
-
-                // Crear conexión
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
-                // Verificar conexión
-                if ($conn->connect_error) {
-                    die("Conexión fallida: " . $conn->connect_error);
-                }
+                
+         // Conexión
+        require_once '../conexion.php';
 
                 // Consulta SQL
                 $sql = "SELECT id_esc, nombre_escuela, direccion_escuela, director, vicedirector, telefono_director, telefono_escuela, mail_escuela, rama_escuela, numero_escuela, cantidad_alumnos, fecha_fundacion FROM escuela";

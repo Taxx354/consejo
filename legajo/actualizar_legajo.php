@@ -7,19 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $cuit_cuil = $_POST['cuit_cuil'];
         $historial_legajo = $_POST['historial_legajo'];
 
-        // Datos de conexión
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "consejo";
-
-        // Crear conexión
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Verificar conexión
-        if ($conn->connect_error) {
-            die("Conexión fallida: " . $conn->connect_error);
-        }
+         // Conexión
+         require_once '../conexion.php';
 
         // Preparar la consulta SQL para actualizar el legajo
         $sql = "UPDATE legajo SET cuit_cuil='$cuit_cuil', historial_legajo='$historial_legajo' WHERE id_legajo=$id_legajo";

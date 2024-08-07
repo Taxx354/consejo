@@ -152,17 +152,9 @@ footer {
             </thead>
             <tbody>
                 <?php
-                // Datos de conexión
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "consejo";
 
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
-                if ($conn->connect_error) {
-                    die("Conexión fallida: " . $conn->connect_error);
-                }
+        // Conexión
+        require_once '../conexion.php';
 
                 // Consulta SQL para obtener documentos
                 $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';

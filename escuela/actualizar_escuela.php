@@ -6,19 +6,9 @@ if (!isset($_POST['id_esc']) || empty($_POST['id_esc'])) {
 }
 
 $id_esc = $_POST['id_esc'];
-// Datos de conexión
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "consejo";
 
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+        // Conexión
+        require_once '../conexion.php';
 
 // Consulta SQL para obtener los datos de la escuela por ID
 $sql = "SELECT * FROM escuela WHERE id_esc = ?";

@@ -1,17 +1,6 @@
 <?php
-// Datos de conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "consejo";
-
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+        // Conexión
+        require_once '../conexion.php';
 
 // Función para limpiar y validar datos
 function validarDatos($datos) {

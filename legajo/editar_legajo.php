@@ -6,19 +6,8 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 
 $id_legajo = $_GET['id'];
 
-// Datos de conexión
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "consejo";
-
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+        // Conexión
+        require_once '../conexion.php';
 
 // Consulta SQL para obtener los datos del legajo
 $sql = "SELECT cuit_cuil, historial_legajo FROM legajo WHERE id_legajo = $id_legajo";

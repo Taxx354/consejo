@@ -16,19 +16,8 @@ $categoria_afip = $_POST['categoria_afip'];
 $cuit_cuil = $_POST['cuit_cuil'];
 $mail_auxiliar = $_POST['mail_auxiliar'];
 
-// Datos de conexión
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "consejo";
-
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+        // Conexión
+        require_once '../conexion.php';
 
 // Consulta SQL para actualizar el auxiliar
 $sql = "UPDATE auxiliar SET 

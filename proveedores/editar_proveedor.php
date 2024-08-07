@@ -6,19 +6,8 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
 
 $id_proveedor = $_GET['id'];
 
-// Datos de conexión
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "consejo";
-
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+        // Conexión
+        require_once '../conexion.php';
 
 // Consulta SQL para obtener los datos del proveedor por ID
 $sql = "SELECT id_proveedor, nombre_proveedor, dni, direccion, telefono, tipo_servicio, observaciones_servicio, categoria_afip, cuit_cuil, mail FROM proveedor WHERE id_proveedor = ?";

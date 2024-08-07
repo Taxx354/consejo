@@ -1,18 +1,7 @@
 <?php
-// Datos de conexión
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "consejo";
-
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-
+        // Conexión
+        require_once '../conexion.php';
+        
 // Obtener datos del formulario
 $nombre_escuela = $_POST['nombre_escuela'];
 $direccion_escuela = $_POST['direccion_escuela'];

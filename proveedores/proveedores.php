@@ -110,8 +110,10 @@ footer {
             </thead>
             <tbody>
                 <?php
+                
+        // Conexión
+        require_once '../conexion.php';
 
-require_once '../conexion.php';
  
                 // Consulta SQL
                 $sql = "SELECT id_proveedor, nombre_proveedor, dni, direccion, telefono, tipo_servicio, observaciones_servicio, categoria_afip, cuit_cuil, mail FROM proveedor"; // Asegúrate de que la tabla se llama 'proveedor' y tiene estas columnas

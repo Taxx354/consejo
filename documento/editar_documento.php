@@ -48,19 +48,9 @@
         <h1 class="mt-5">Editar Documento</h1>
         <a href="documento.php" class="btn btn-secondary mb-3">Volver</a>
         <?php
-        // Datos de conexión
-        $servername = "localhost";
- $username = "root";
- $password = "";
- $dbname = "consejo";
-
-        // Crear conexión
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Verificar conexión
-        if ($conn->connect_error) {
-            die("Conexión fallida: " . $conn->connect_error);
-        }
+        
+        // Conexión
+        require_once '../conexion.php';
 
         // Obtener ID del documento
         $id_documento = $_GET['id'];
