@@ -1,0 +1,1 @@
+La página ya quedó terminada, queda únicamente cargar datos reales de proveedores, auxiliares, escuelas, documentos y legajos
