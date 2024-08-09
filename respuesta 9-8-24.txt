@@ -1,0 +1,3 @@
+Empezariamos a cargar gente si no fuera porque la pagina aún no funciona de forma correcta, 
+la parte de legajos, al querer editar a una persona, no guarda los cambios de la edición, 
+y hay errores al querer editar o crear un documento nuevo. Estamos arreglando eso.
