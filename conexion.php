@@ -8,6 +8,8 @@ $dbname = "consejo";
 // Intentar la conexión a la base de datos
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+$conn->set_charset("utf8mb4");
+
 // Verificar la conexión
 if($conn->connect_error){
     die("Conexion fallida: " . $conn->connect_error);
