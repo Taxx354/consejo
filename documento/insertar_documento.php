@@ -73,11 +73,11 @@ if ($uploadOk == 0) {
  $searchType = $_POST['search_type'];
  $search = $_POST['search'];
  $driveFileId = $_POST['drive_file_id'];
-
+ 
 
 // Consulta SQL para insertar datos en la tabla documentos
 $stmt = $conn->prepare("INSERT INTO documentos (id_documento, id_esc, fecha, titulo, link, cuit_cuil, tipo_servicio, estado, expediente, historial_legajo, search_type, search, drive_file_id) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("issssssss", $id_esc, $fecha, $titulo, $link, $cuit_cuil, $tipo_servicio, $estado, $expediente, $target_file);
+$stmt->bind_param("issssssss", $id_esc, $fecha, $titulo, $link, $cuit_cuil, $tipo_servicio, $estado, $expediente, $target_file); 
 
 if ($stmt->execute()) {
     echo "Nuevo documento agregado correctamente";

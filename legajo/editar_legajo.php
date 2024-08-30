@@ -114,14 +114,14 @@ $conn->close();
                 <label for="historial_legajo" class="form-label">Documento Legajo</label>
                 <input type="text" class="form-control" id="historial_legajo" name="historial_legajo" value="<?php echo $historial_legajo; ?>" required>
             </div>
-            <div class="form-group">
+<!--             <div class="form-group">
                 <label for="proveedor_auxiliar" class="form-label">Proveedor o auxiliar</label>
                 <select class="form-control" id="proveedor-auxiliar" name="proveedor_auxiliar" required>
                 <option value="">Seleccione un cuit/cuil</option>
                     <option value="proveedor">Proveedor</option>
                     <option value="auxiliar">Auxiliar</option>
                 </select>
-            </div>
+            </div> -->
             <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </form>
     </div>
